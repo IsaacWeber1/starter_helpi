@@ -2,8 +2,57 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
+  console.error
+    Warning: Each child in a list should have a unique "key" prop.
+    
+    Check the render method of `MC_SINGLE_RESPONSE`. See https://reactjs.org/link/warning-keys for more information.
+        at li
+        at MC_SINGLE_RESPONSE (/home/runner/work/starter_helpi/starter_helpi/src/Components/MC_SINGLE_RESPONSE.tsx:4:5)
+        at div
+        at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Col.js:64:8
+        at div
+        at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Row.js:14:3
+        at div
+        at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Container.js:14:3
+        at BasicQuiz (/home/runner/work/starter_helpi/starter_helpi/src/Components/BasicQuiz.tsx:6:51)
+        at div
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:23:33)
+
+      15 |         <div>
+      16 |             <h3>{question}</h3>
+    > 17 |             <ul style={{ listStyleType: "none" }}>
+         |             ^
+      18 |                 {choices.map((choice) => (
+      19 |                     <li>
+      20 |                         <Form.Check
+
+      at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:87:30)
+      at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:61:7)
+      at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1078:5)
+      at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1105:11)
+      at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1276:11)
+      at MC_SINGLE_RESPONSE (src/Components/MC_SINGLE_RESPONSE.tsx:17:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/App.test.tsx:6:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
 FAIL src/App.test.tsx
-  ✕ renders learn react link (37 ms)
+  ✕ renders learn react link (94 ms)
 
   ● renders learn react link
 
@@ -18,15 +67,126 @@ FAIL src/App.test.tsx
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
-            [36m<h2>[39m
-              [0mThe Goats[0m
-            [36m</h2>[39m
-            [36m<br />[39m
-            [36m<br />[39m
-            [36m<h3>[39m
-              [0mGroup Members: Isaac Weber, Dylan Minchhoff, Barry Peirson[0m
-            [36m</h3>[39m
+            [0mhome-button-barrypreal[0m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mHome[0m
+            [36m</button>[39m
           [36m</header>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"container-fluid"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"row"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"col"[39m
+                [33mstyle[39m=[32m"justify-content: left;"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<h3>[39m
+                    [0mHow old are you?[0m
+                  [36m</h3>[39m
+                  [36m<ul[39m
+                    [33mstyle[39m=[32m"list-style-type: none;"[39m
+                  [36m>[39m
+                    [36m<li>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"form-check"[39m
+                      [36m>[39m
+                        [36m<input[39m
+                          [33mclass[39m=[32m"form-check-input"[39m
+                          [33mid[39m=[32m"1"[39m
+                          [33mtype[39m=[32m"radio"[39m
+                        [36m/>[39m
+                        [36m<label[39m
+                          [33mclass[39m=[32m"form-check-label"[39m
+                          [33mfor[39m=[32m"1"[39m
+                          [33mtitle[39m=[32m""[39m
+                        [36m>[39m
+                          [0m1[0m
+                        [36m</label>[39m
+                      [36m</div>[39m
+                    [36m</li>[39m
+                    [36m<li>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"form-check"[39m
+                      [36m>[39m
+                        [36m<input[39m
+                          [33mclass[39m=[32m"form-check-input"[39m
+                          [33mid[39m=[32m"2"[39m
+                          [33mtype[39m=[32m"radio"[39m
+                        [36m/>[39m
+                        [36m<label[39m
+                          [33mclass[39m=[32m"form-check-label"[39m
+                          [33mfor[39m=[32m"2"[39m
+                          [33mtitle[39m=[32m""[39m
+                        [36m>[39m
+                          [0m2[0m
+                        [36m</label>[39m
+                      [36m</div>[39m
+                    [36m</li>[39m
+                    [36m<li>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"form-check"[39m
+                      [36m>[39m
+                        [36m<input[39m
+                          [33mclass[39m=[32m"form-check-input"[39m
+                          [33mid[39m=[32m"3"[39m
+                          [33mtype[39m=[32m"radio"[39m
+                        [36m/>[39m
+                        [36m<label[39m
+                          [33mclass[39m=[32m"form-check-label"[39m
+                          [33mfor[39m=[32m"3"[39m
+                          [33mtitle[39m=[32m""[39m
+                        [36m>[39m
+                          [0m3[0m
+                        [36m</label>[39m
+                      [36m</div>[39m
+                    [36m</li>[39m
+                    [36m<li>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"form-check"[39m
+                      [36m>[39m
+                        [36m<input[39m
+                          [33mclass[39m=[32m"form-check-input"[39m
+                          [33mid[39m=[32m"4"[39m
+                          [33mtype[39m=[32m"radio"[39m
+                        [36m/>[39m
+                        [36m<label[39m
+                          [33mclass[39m=[32m"form-check-label"[39m
+                          [33mfor[39m=[32m"4"[39m
+                          [33mtitle[39m=[32m""[39m
+                        [36m>[39m
+                          [0m4[0m
+                        [36m</label>[39m
+                      [36m</div>[39m
+                    [36m</li>[39m
+                    [36m<li>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"form-check"[39m
+                      [36m>[39m
+                        [36m<input[39m
+                          [33mclass[39m=[32m"form-check-input"[39m
+                          [33mid[39m=[32m"5"[39m
+                          [33mtype[39m=[32m"radio"[39m
+                        [36m/>[39m
+                        [36m<label[39m
+                          [33mclass[39m=[32m"form-check-label"[39m
+                          [33mfor[39m=[32m"5"[39m
+                          [33mtitle[39m=[32m""[39m
+                        [36m>[39m
+                          [0m5[0m
+                        [36m</label>[39m
+                      [36m</div>[39m
+                    [36m</li>[39m
+                  [36m</ul>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
           [36m<form[39m
             [33mclass[39m=[32m""[39m
           [36m>[39m
@@ -70,18 +230,30 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   28.57 |    16.66 |      20 |   28.57 |                   
- App.tsx            |      60 |       50 |   33.33 |      60 | 10,18-24          
- index.tsx          |       0 |      100 |     100 |       0 | 7-19              
- reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
---------------------|---------|----------|---------|---------|-------------------
+---------------------------|---------|----------|---------|---------|-------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------|---------|----------|---------|---------|-------------------
+All files                  |   32.55 |       25 |   22.22 |   32.55 |                   
+ src                       |   30.76 |       25 |   16.66 |   30.76 |                   
+  App.tsx                  |   53.33 |       50 |      25 |   53.33 | 13,17-18,27-33,40 
+  index.tsx                |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts       |       0 |        0 |       0 |       0 | 3-10              
+ src/Components            |      60 |      100 |   42.85 |      60 |                   
+  AdvancedQuiz.tsx         |       0 |      100 |       0 |       0 | 2                 
+  BasicQuiz.tsx            |     100 |      100 |     100 |     100 |                   
+  MC_Multi_Response.tsx    |       0 |      100 |       0 |       0 | 2                 
+  MC_SINGLE_RESPONSE.tsx   |   66.66 |      100 |   66.66 |   66.66 | 24                
+  User_Ranking.tsx         |       0 |      100 |       0 |       0 | 2                 
+ src/components            |       0 |      100 |       0 |       0 |                   
+  DetailedQuestion.tsx     |       0 |      100 |       0 |       0 | 7-21              
+ src/pages                 |       0 |      100 |       0 |       0 |                   
+  basicQuestionPage.tsx    |       0 |      100 |       0 |       0 | 2                 
+  detailedQuestionPage.tsx |       0 |      100 |       0 |       0 | 2                 
+---------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.538 s
+Time:        3.208 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
