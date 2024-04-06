@@ -14,9 +14,13 @@
         at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Row.js:14:3
         at div
         at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Container.js:14:3
-        at BasicQuiz (/home/runner/work/starter_helpi/starter_helpi/src/Components/BasicQuiz.tsx:7:51)
+        at BasicQuiz (/home/runner/work/starter_helpi/starter_helpi/src/pages/BasicQuiz.tsx:7:51)
+        at RenderedRoute (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router/lib/hooks.tsx:657:26)
+        at Routes (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router/lib/components.tsx:504:3)
         at div
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:23:33)
+        at Router (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router/lib/components.tsx:413:13)
+        at BrowserRouter (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router-dom/index.tsx:757:3)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:27:33)
 
       15 |         <div>
       16 |             <h3>{question}</h3>
@@ -63,9 +67,13 @@
         at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Row.js:14:3
         at div
         at /home/runner/work/starter_helpi/starter_helpi/node_modules/react-bootstrap/cjs/Container.js:14:3
-        at BasicQuiz (/home/runner/work/starter_helpi/starter_helpi/src/Components/BasicQuiz.tsx:7:51)
+        at BasicQuiz (/home/runner/work/starter_helpi/starter_helpi/src/pages/BasicQuiz.tsx:7:51)
+        at RenderedRoute (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router/lib/hooks.tsx:657:26)
+        at Routes (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router/lib/components.tsx:504:3)
         at div
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:23:33)
+        at Router (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router/lib/components.tsx:413:13)
+        at BrowserRouter (/home/runner/work/starter_helpi/starter_helpi/node_modules/react-router-dom/index.tsx:757:3)
+        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:27:33)
 
       22 |         <div>
       23 |             <h3>{question}</h3>
@@ -101,7 +109,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (146 ms)
+  ✕ renders learn react link (290 ms)
 
   ● renders learn react link
 
@@ -116,7 +124,6 @@ FAIL src/App.test.tsx
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
-            [0mhome-button-barrypreal[0m
             [36m<button[39m
               [33mclass[39m=[32m"btn btn-primary"[39m
               [33mtype[39m=[32m"button"[39m
@@ -352,7 +359,6 @@ FAIL src/App.test.tsx
               [33mplaceholder[39m=[32m"Insert API Key Here"[39m
               [33mtype[39m=[32m"password"[39m
             [36m/>[39m
-            [36m<br />[39m
             [36m<button[39m
               [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
               [33mtype[39m=[32m"button"[39m
@@ -385,31 +391,30 @@ FAIL src/App.test.tsx
 --------------------------------|---------|----------|---------|---------|-------------------
 File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   34.54 |       20 |      24 |   35.84 |                   
+All files                       |   35.84 |       20 |   26.08 |   37.25 |                   
  src                            |   30.76 |       25 |   16.66 |   30.76 |                   
-  App.tsx                       |   53.33 |       50 |      25 |   53.33 | 13,17-18,27-33,40 
+  App.tsx                       |   53.33 |       50 |      25 |   53.33 | 18,22-23,31-37,45 
   index.tsx                     |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
- src/Components                 |   40.74 |        0 |   31.25 |      44 |                   
-  AdvancedQuiz.tsx              |       0 |      100 |       0 |       0 | 2                 
-  BasicQuiz.tsx                 |     100 |      100 |     100 |     100 |                   
+ src/Components                 |   22.22 |        0 |   30.76 |      25 |                   
   DetailedQuestion.tsx          |       0 |      100 |       0 |       0 | 7-21              
   MC_MULTI_RESPONSE.tsx         |   22.22 |        0 |   33.33 |   28.57 | 14-18,31          
   MC_SINGLE_RESPONSE.tsx        |   66.66 |      100 |   66.66 |   66.66 | 24                
   USER_RANKING.tsx              |       0 |      100 |       0 |       0 | 2                 
-  ViewQuizzes.tsx               |       0 |      100 |       0 |       0 | 2                 
  src/Interfaces                 |       0 |        0 |       0 |       0 |                   
+  BasicQuizProps.ts             |       0 |        0 |       0 |       0 |                   
   MultiResponseQuestionProps.ts |       0 |        0 |       0 |       0 |                   
   SingleResponseProps.ts        |       0 |        0 |       0 |       0 |                   
   UserRankingProps.ts           |       0 |        0 |       0 |       0 |                   
- src/pages                      |       0 |      100 |       0 |       0 |                   
-  basicQuestionPage.tsx         |       0 |      100 |       0 |       0 | 2                 
-  detailedQuestionPage.tsx      |       0 |      100 |       0 |       0 | 2                 
+ src/pages                      |   77.77 |      100 |   33.33 |   77.77 |                   
+  AdvancedQuiz.tsx              |       0 |      100 |       0 |       0 | 2                 
+  BasicQuiz.tsx                 |     100 |      100 |     100 |     100 |                   
+  ViewQuizzes.tsx               |       0 |      100 |       0 |       0 | 3                 
 --------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.201 s
+Time:        3.195 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
