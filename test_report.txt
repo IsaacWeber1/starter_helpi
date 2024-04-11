@@ -60,7 +60,7 @@ FAIL src/App.test.tsx
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |    5.92 |        0 |    1.88 |     6.5 |                   
+All files                |    5.88 |        0 |    1.88 |    6.45 |                   
  src                     |    8.33 |        0 |   33.33 |    8.33 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
   index.tsx              |       0 |      100 |     100 |       0 | 7-19              
@@ -68,8 +68,8 @@ All files                |    5.92 |        0 |    1.88 |     6.5 |
  src/assets/quizzes      |   17.39 |        0 |       0 |   22.22 |                   
   AdvancedQuiz.ts        |      20 |        0 |       0 |      25 | 4-6,22-36         
   BasicQuiz.ts           |   15.38 |        0 |       0 |      20 | 4-7,16-44         
- src/components          |    1.35 |        0 |       0 |    1.49 |                   
-  DisplayQuiz.tsx        |       0 |        0 |       0 |       0 | 25-86             
+ src/components          |    1.33 |        0 |       0 |    1.47 |                   
+  DisplayQuiz.tsx        |       0 |        0 |       0 |       0 | 25-87             
   McMultiResponse.tsx    |       0 |        0 |       0 |       0 | 15-42             
   McSingleResponse.tsx   |       0 |      100 |       0 |       0 | 15-40             
   ProgressBar.tsx        |      50 |      100 |       0 |      50 | 2                 
@@ -90,7 +90,7 @@ All files                |    5.92 |        0 |    1.88 |     6.5 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.247 s
+Time:        3.28 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
