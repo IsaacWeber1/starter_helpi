@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (36 ms)
+  ✕ renders learn react link (35 ms)
 
   ● renders learn react link
 
@@ -57,40 +57,28 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-[0;33mOne of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-
-babel-preset-react-app is part of the create-react-app project, [1mwhich
-is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.[0m
-  
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |    4.76 |        0 |    1.47 |    5.03 |                   
+All files                |    4.34 |        0 |    1.72 |    4.61 |                   
  src                     |    8.33 |        0 |   33.33 |    8.33 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
   index.tsx              |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts     |       0 |        0 |       0 |       0 | 3-10              
- src/assets/quizzes      |      16 |        0 |       0 |   17.39 |                   
-  AdvancedQuiz.ts        |      20 |        0 |       0 |      25 | 4-6,22-36         
-  BasicQuiz.ts           |   13.33 |        0 |       0 |   13.33 | 4-14,23-58        
- src/components          |    1.26 |        0 |       0 |    1.36 |                   
-  DisplayQuiz.tsx        |       0 |        0 |       0 |       0 | 26-97             
-  McMultiResponse.tsx    |       0 |        0 |       0 |       0 | 17-43             
-  McSingleResponse.tsx   |       0 |      100 |       0 |       0 | 17-37             
+ src/assets/quizzes      |     100 |      100 |     100 |     100 |                   
+  AdvancedQuiz.ts        |     100 |      100 |     100 |     100 |                   
+  BasicQuiz.ts           |     100 |      100 |     100 |     100 |                   
+ src/components          |    1.26 |        0 |       0 |    1.38 |                   
+  DisplayQuiz.tsx        |       0 |        0 |       0 |       0 | 32-112            
+  McMultiResponse.tsx    |       0 |        0 |       0 |       0 | 13-46             
+  McSingleResponse.tsx   |       0 |      100 |       0 |       0 | 13-36             
   ProgressBar.tsx        |      50 |      100 |       0 |      50 | 2                 
-  SliderResponse.tsx     |       0 |      100 |       0 |       0 | 24-39             
-  TextResponse.tsx       |       0 |      100 |       0 |       0 | 18-33             
-  UserRanking.tsx        |       0 |        0 |       0 |       0 | 17-61             
- src/interfaces          |       0 |        0 |       0 |       0 |                   
+  SliderResponse.tsx     |       0 |      100 |       0 |       0 | 22-33             
+  TextResponse.tsx       |       0 |      100 |       0 |       0 | 14-27             
+  UserRanking.tsx        |       0 |        0 |       0 |       0 | 13-73             
+ src/interfaces          |       0 |      100 |       0 |       0 |                   
   QuestionTypes.ts       |       0 |        0 |       0 |       0 |                   
-  QuizFlow.ts            |       0 |        0 |       0 |       0 | 4-16              
+  QuizFlow.ts            |       0 |      100 |       0 |       0 | 4-5               
  src/pages               |       0 |      100 |       0 |       0 |                   
   Home.tsx               |       0 |      100 |       0 |       0 | 4-16              
   SelectQuiz.tsx         |       0 |      100 |       0 |       0 | 6                 
@@ -109,5 +97,5 @@ All files                |    4.76 |        0 |    1.47 |    5.03 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.438 s
+Time:        3.006 s
 Ran all test suites.
