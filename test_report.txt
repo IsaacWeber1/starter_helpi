@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (35 ms)
+  ✕ renders learn react link (36 ms)
 
   ● renders learn react link
 
@@ -60,7 +60,7 @@ FAIL src/App.test.tsx
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |    4.34 |        0 |    1.72 |    4.61 |                   
+All files                |    4.19 |        0 |    1.58 |    4.44 |                   
  src                     |    8.33 |        0 |   33.33 |    8.33 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
   index.tsx              |       0 |      100 |     100 |       0 | 7-19              
@@ -68,14 +68,14 @@ All files                |    4.34 |        0 |    1.72 |    4.61 |
  src/assets/quizzes      |     100 |      100 |     100 |     100 |                   
   AdvancedQuiz.ts        |     100 |      100 |     100 |     100 |                   
   BasicQuiz.ts           |     100 |      100 |     100 |     100 |                   
- src/components          |    1.26 |        0 |       0 |    1.38 |                   
-  DisplayQuiz.tsx        |       0 |        0 |       0 |       0 | 32-112            
-  McMultiResponse.tsx    |       0 |        0 |       0 |       0 | 13-46             
-  McSingleResponse.tsx   |       0 |      100 |       0 |       0 | 13-36             
+ src/components          |    1.19 |        0 |       0 |    1.29 |                   
+  DisplayQuiz.tsx        |       0 |        0 |       0 |       0 | 32-113            
+  McMultiResponse.tsx    |       0 |        0 |       0 |       0 | 15-55             
+  McSingleResponse.tsx   |       0 |        0 |       0 |       0 | 15-42             
   ProgressBar.tsx        |      50 |      100 |       0 |      50 | 2                 
-  SliderResponse.tsx     |       0 |      100 |       0 |       0 | 22-33             
-  TextResponse.tsx       |       0 |      100 |       0 |       0 | 14-27             
-  UserRanking.tsx        |       0 |        0 |       0 |       0 | 13-73             
+  SliderResponse.tsx     |       0 |        0 |       0 |       0 | 24-39             
+  TextResponse.tsx       |       0 |        0 |       0 |       0 | 16-35             
+  UserRanking.tsx        |       0 |        0 |       0 |       0 | 15-79             
  src/interfaces          |       0 |      100 |       0 |       0 |                   
   QuestionTypes.ts       |       0 |        0 |       0 |       0 |                   
   QuizFlow.ts            |       0 |      100 |       0 |       0 | 4-5               
@@ -97,5 +97,5 @@ All files                |    4.34 |        0 |    1.72 |    4.61 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.006 s
+Time:        2.886 s
 Ran all test suites.
