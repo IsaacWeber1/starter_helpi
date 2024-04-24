@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (35 ms)
+  ✕ renders learn react link (36 ms)
 
   ● renders learn react link
 
@@ -60,7 +60,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    5.24 |     0.89 |    1.85 |    5.57 |                   
+All files                 |    5.22 |     0.87 |    1.85 |    5.55 |                   
  src                      |    5.88 |        0 |   33.33 |    5.88 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
   index.tsx               |       0 |        0 |     100 |       0 | 9-32              
@@ -76,11 +76,11 @@ All files                 |    5.24 |     0.89 |    1.85 |    5.57 |
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 27-92             
   TextResponse.tsx        |       0 |        0 |       0 |       0 | 19-88             
   UserRanking.tsx         |       0 |        0 |       0 |       0 | 18-132            
- src/controller           |   35.71 |       50 |      20 |   41.66 |                   
+ src/controller           |   33.33 |       25 |      20 |   38.46 |                   
   CallChat.ts             |       0 |      100 |       0 |       0 | 15-45             
   ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                   
   OpenChatStream.ts       |       0 |        0 |       0 |       0 |                   
-  StartingPrompt.ts       |       0 |      100 |       0 |       0 | 3-4               
+  StartingPrompt.ts       |       0 |        0 |       0 |       0 | 3-10              
   openaiToken.ts          |   83.33 |       50 |     100 |     100 | 5                 
  src/interfaces           |       0 |      100 |       0 |       0 |                   
   PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                   
@@ -106,5 +106,5 @@ All files                 |    5.24 |     0.89 |    1.85 |    5.57 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.233 s
+Time:        3.306 s
 Ran all test suites.
