@@ -71,7 +71,7 @@ All files                 |    5.22 |     0.87 |    1.85 |    5.55 |
   BasicQuiz.ts            |     100 |      100 |     100 |     100 |                   
  src/components           |    0.56 |        0 |       0 |    0.61 |                   
   DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 32-136            
-  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 18-149            
+  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 18-150            
   McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 19-97             
   ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                 
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 27-92             
@@ -81,7 +81,7 @@ All files                 |    5.22 |     0.87 |    1.85 |    5.55 |
   CallChat.ts             |       0 |      100 |       0 |       0 | 15-45             
   ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                   
   OpenChatStream.ts       |       0 |        0 |       0 |       0 |                   
-  StartingPrompt.ts       |       0 |        0 |       0 |       0 | 3-10              
+  StartingPrompt.ts       |       0 |        0 |       0 |       0 | 3-141             
   openaiToken.ts          |   83.33 |       50 |     100 |     100 | 5                 
  src/interfaces           |       0 |      100 |       0 |       0 |                   
   PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                   
@@ -96,7 +96,7 @@ All files                 |    5.22 |     0.87 |    1.85 |    5.55 |
  src/pages/basic-quiz     |      25 |      100 |       0 |      25 |                   
   BasicQuiz.tsx           |      25 |      100 |       0 |      25 | 10-12             
  src/pages/chat-gbt-page  |   10.71 |        0 |       0 |   11.11 |                   
-  ChatGBTPage.tsx         |   10.71 |        0 |       0 |   11.11 | 10-13,20-21,25-82 
+  ChatGBTPage.tsx         |   10.71 |        0 |       0 |   11.11 | 11-14,21-22,26-83 
  src/tmp                  |       0 |        0 |       0 |       0 |                   
   DetailedQuestion.tsx    |       0 |      100 |       0 |       0 | 9-12              
   DisplayQuestion.tsx     |       0 |        0 |       0 |       0 | 20-48             
@@ -107,5 +107,5 @@ All files                 |    5.22 |     0.87 |    1.85 |    5.55 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.296 s
+Time:        3.304 s
 Ran all test suites.
