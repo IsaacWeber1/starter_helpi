@@ -58,55 +58,55 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
---------------------------|---------|----------|---------|---------|-----------------------
-File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s     
---------------------------|---------|----------|---------|---------|-----------------------
-All files                 |    6.06 |     0.73 |    1.62 |    6.56 |                       
- src                      |    5.88 |        0 |   33.33 |    5.88 |                       
-  App.tsx                 |     100 |      100 |     100 |     100 |                       
-  index.tsx               |       0 |        0 |     100 |       0 | 9-32                  
-  reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10                  
- src/assets/quizzes       |     100 |      100 |     100 |     100 |                       
-  AdvancedQuiz.ts         |     100 |      100 |     100 |     100 |                       
-  BasicQuiz.ts            |     100 |      100 |     100 |     100 |                       
- src/components           |    0.84 |        0 |       0 |    0.93 |                       
-  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 45-229                
-  Loading.tsx             |      50 |      100 |       0 |      50 | 2                     
-  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 18-150                
-  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 19-97                 
-  ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                     
-  SliderResponse.tsx      |       0 |        0 |       0 |       0 | 27-94                 
-  TextResponse.tsx        |       0 |        0 |       0 |       0 | 19-89                 
-  UserRanking.tsx         |       0 |        0 |       0 |       0 | 18-135                
- src/controller           |   35.48 |       25 |    9.09 |   40.74 |                       
-  CallChat.ts             |       0 |        0 |       0 |       0 | 15-52                 
-  ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                       
-  OpenChatStream.ts       |       0 |        0 |       0 |       0 |                       
-  StartingPrompt.ts       |   46.15 |      100 |       0 |      50 | 4,146,225,229,233,237 
-  openaiToken.ts          |   83.33 |       50 |     100 |     100 | 5                     
- src/interfaces           |       0 |      100 |       0 |       0 |                       
-  PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                       
-  QuestionTypes.ts        |       0 |        0 |       0 |       0 |                       
-  QuizFlow.ts             |       0 |      100 |       0 |       0 | 4-5                   
- src/pages                |    7.69 |      100 |       0 |    7.69 |                       
-  Home.tsx                |    9.09 |      100 |       0 |    9.09 | 5-18,44               
-  SelectQuiz.tsx          |       0 |      100 |       0 |       0 | 6                     
-  ViewQuizzes.tsx         |       0 |      100 |       0 |       0 | 8                     
- src/pages/advanced-quiz  |      25 |      100 |       0 |      25 |                       
-  AdvancedQuiz.tsx        |      25 |      100 |       0 |      25 | 12-14                 
- src/pages/basic-quiz     |      25 |      100 |       0 |      25 |                       
-  BasicQuiz.tsx           |      25 |      100 |       0 |      25 | 11-13                 
- src/pages/chat-gbt-page  |   10.71 |        0 |       0 |   11.11 |                       
-  ChatGBTPage.tsx         |   10.71 |        0 |       0 |   11.11 | 11-14,21-22,26-83     
- src/tmp                  |       0 |        0 |       0 |       0 |                       
-  DetailedQuestion.tsx    |       0 |      100 |       0 |       0 | 9-12                  
-  DisplayQuestion.tsx     |       0 |        0 |       0 |       0 | 20-48                 
-  MC_MULTI_RESPONSE.tsx   |       0 |        0 |       0 |       0 | 14-32                 
-  MC_SINGLE_RESPONSE.tsx  |       0 |      100 |       0 |       0 | 14-26                 
-  USER_RANKING.tsx        |       0 |      100 |       0 |       0 | 2                     
---------------------------|---------|----------|---------|---------|-----------------------
+--------------------------|---------|----------|---------|---------|-------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------------|---------|----------|---------|---------|-------------------
+All files                 |    6.06 |     0.73 |    1.62 |    6.56 |                   
+ src                      |    5.88 |        0 |   33.33 |    5.88 |                   
+  App.tsx                 |     100 |      100 |     100 |     100 |                   
+  index.tsx               |       0 |        0 |     100 |       0 | 9-32              
+  reportWebVitals.ts      |       0 |        0 |       0 |       0 | 3-10              
+ src/assets/quizzes       |     100 |      100 |     100 |     100 |                   
+  AdvancedQuiz.ts         |     100 |      100 |     100 |     100 |                   
+  BasicQuiz.ts            |     100 |      100 |     100 |     100 |                   
+ src/components           |    0.84 |        0 |       0 |    0.93 |                   
+  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 45-229            
+  Loading.tsx             |      50 |      100 |       0 |      50 | 2                 
+  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 18-150            
+  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 19-97             
+  ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                 
+  SliderResponse.tsx      |       0 |        0 |       0 |       0 | 27-94             
+  TextResponse.tsx        |       0 |        0 |       0 |       0 | 19-89             
+  UserRanking.tsx         |       0 |        0 |       0 |       0 | 18-135            
+ src/controller           |   35.48 |       25 |    9.09 |   40.74 |                   
+  CallChat.ts             |       0 |        0 |       0 |       0 | 15-52             
+  ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                   
+  OpenChatStream.ts       |       0 |        0 |       0 |       0 |                   
+  StartingPrompt.ts       |   46.15 |      100 |       0 |      50 | 4,10,73,77,81,85  
+  openaiToken.ts          |   83.33 |       50 |     100 |     100 | 5                 
+ src/interfaces           |       0 |      100 |       0 |       0 |                   
+  PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                   
+  QuestionTypes.ts        |       0 |        0 |       0 |       0 |                   
+  QuizFlow.ts             |       0 |      100 |       0 |       0 | 4-5               
+ src/pages                |    7.69 |      100 |       0 |    7.69 |                   
+  Home.tsx                |    9.09 |      100 |       0 |    9.09 | 5-18,44           
+  SelectQuiz.tsx          |       0 |      100 |       0 |       0 | 6                 
+  ViewQuizzes.tsx         |       0 |      100 |       0 |       0 | 8                 
+ src/pages/advanced-quiz  |      25 |      100 |       0 |      25 |                   
+  AdvancedQuiz.tsx        |      25 |      100 |       0 |      25 | 12-14             
+ src/pages/basic-quiz     |      25 |      100 |       0 |      25 |                   
+  BasicQuiz.tsx           |      25 |      100 |       0 |      25 | 11-13             
+ src/pages/chat-gbt-page  |   10.71 |        0 |       0 |   11.11 |                   
+  ChatGBTPage.tsx         |   10.71 |        0 |       0 |   11.11 | 11-14,21-22,26-83 
+ src/tmp                  |       0 |        0 |       0 |       0 |                   
+  DetailedQuestion.tsx    |       0 |      100 |       0 |       0 | 9-12              
+  DisplayQuestion.tsx     |       0 |        0 |       0 |       0 | 20-48             
+  MC_MULTI_RESPONSE.tsx   |       0 |        0 |       0 |       0 | 14-32             
+  MC_SINGLE_RESPONSE.tsx  |       0 |      100 |       0 |       0 | 14-26             
+  USER_RANKING.tsx        |       0 |      100 |       0 |       0 | 2                 
+--------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.404 s
+Time:        3.324 s
 Ran all test suites.
