@@ -61,7 +61,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |    6.06 |     0.73 |    1.62 |    6.56 |                   
+All files                 |    5.85 |     0.64 |    1.57 |    6.32 |                   
  src                      |    5.88 |        0 |   33.33 |    5.88 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
   index.tsx               |       0 |        0 |     100 |       0 | 9-32              
@@ -69,11 +69,11 @@ All files                 |    6.06 |     0.73 |    1.62 |    6.56 |
  src/assets/quizzes       |     100 |      100 |     100 |     100 |                   
   AdvancedQuiz.ts         |     100 |      100 |     100 |     100 |                   
   BasicQuiz.ts            |     100 |      100 |     100 |     100 |                   
- src/components           |    0.84 |        0 |       0 |    0.93 |                   
-  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 45-229            
-  Loading.tsx             |      50 |      100 |       0 |      50 | 2                 
-  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 18-150            
-  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 19-97             
+ src/components           |     0.8 |        0 |       0 |    0.88 |                   
+  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 47-277            
+  Loading.tsx             |      50 |        0 |       0 |      50 | 7                 
+  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 18-166            
+  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 19-132            
   ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                 
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 27-94             
   TextResponse.tsx        |       0 |        0 |       0 |       0 | 19-89             
@@ -108,5 +108,5 @@ All files                 |    6.06 |     0.73 |    1.62 |    6.56 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.324 s
+Time:        3.393 s
 Ran all test suites.
