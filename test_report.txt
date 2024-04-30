@@ -18,7 +18,7 @@
       at Object.<anonymous> (src/controller/CallChat.ts:3:1)
       at Object.<anonymous> (src/components/DisplayQuiz.tsx:9:1)
       at Object.<anonymous> (src/pages/basic-quiz/BasicQuiz.tsx:4:1)
-      at Object.<anonymous> (src/App.tsx:7:1)
+      at Object.<anonymous> (src/App.tsx:8:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
@@ -26,7 +26,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (35 ms)
+  ✕ renders learn react link (49 ms)
 
   ● renders learn react link
 
@@ -60,6 +60,59 @@ FAIL src/App.test.tsx
             [0m404 Not Found[0m
           [36m</div>[39m
         [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App-footer"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"row"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<form[39m
+                  [33mclass[39m=[32m""[39m
+                [36m>[39m
+                  [36m<div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<input[39m
+                          [33mclass[39m=[32m"form-control"[39m
+                          [33mid[39m=[32m"formApiKey"[39m
+                          [33mplaceholder[39m=[32m"Enter API key:"[39m
+                          [33mtype[39m=[32m"password"[39m
+                          [33mvalue[39m=[32m""[39m
+                        [36m/>[39m
+                      [36m</div>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                        [33mstyle[39m=[32m"text-align: left;"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-nav"[39m
+                          [33mtype[39m=[32m"submit"[39m
+                        [36m>[39m
+                          [0mSubmit[0m
+                        [36m</button>[39m
+                        [0m✗[0m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</form>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+              [33mstyle[39m=[32m"text-align: center;"[39m
+            [36m>[39m
+              [0mIsaac, Dylan, Barry[0m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
 
@@ -84,7 +137,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------|---------|----------|---------|---------|-------------------------
-All files                 |    5.79 |     0.57 |    1.51 |    6.31 |                         
+All files                 |    7.01 |     1.13 |    2.27 |    7.65 |                         
  src                      |    5.88 |        0 |   33.33 |    5.88 |                         
   App.tsx                 |     100 |      100 |     100 |     100 |                         
   index.tsx               |       0 |        0 |     100 |       0 | 9-32                    
@@ -95,12 +148,12 @@ All files                 |    5.79 |     0.57 |    1.51 |    6.31 |
  src/components           |    0.76 |        0 |       0 |    0.86 |                         
   DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 53-261                  
   Loading.tsx             |      50 |        0 |       0 |      50 | 7                       
-  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 20-174                  
-  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 21-134                  
+  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 20-173                  
+  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 21-133                  
   ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                       
-  SliderResponse.tsx      |       0 |        0 |       0 |       0 | 29-96                   
-  TextResponse.tsx        |       0 |        0 |       0 |       0 | 21-91                   
-  UserRanking.tsx         |       0 |        0 |       0 |       0 | 26-121                  
+  SliderResponse.tsx      |       0 |        0 |       0 |       0 | 29-95                   
+  TextResponse.tsx        |       0 |        0 |       0 |       0 | 21-90                   
+  UserRanking.tsx         |       0 |        0 |       0 |       0 | 26-120                  
  src/controller           |   32.43 |     12.5 |    9.09 |   35.29 |                         
   CallChat.ts             |       0 |        0 |       0 |       0 | 78-115                  
   ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                         
@@ -111,8 +164,8 @@ All files                 |    5.79 |     0.57 |    1.51 |    6.31 |
   PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                         
   QuestionTypes.ts        |       0 |        0 |       0 |       0 |                         
   QuizFlow.ts             |       0 |      100 |       0 |       0 | 4-5                     
- src/pages                |    7.69 |      100 |       0 |    7.69 |                         
-  Home.tsx                |    9.09 |      100 |       0 |    9.09 | 5-18,44                 
+ src/pages                |      40 |       50 |   16.66 |      40 |                         
+  Home.tsx                |   46.15 |       50 |      25 |   46.15 | 10,13-18,44             
   SelectQuiz.tsx          |       0 |      100 |       0 |       0 | 6                       
   ViewQuizzes.tsx         |       0 |      100 |       0 |       0 | 8                       
  src/pages/advanced-quiz  |   16.66 |      100 |       0 |   16.66 |                         
@@ -131,5 +184,5 @@ All files                 |    5.79 |     0.57 |    1.51 |    6.31 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.52 s
+Time:        3.738 s
 Ran all test suites.
