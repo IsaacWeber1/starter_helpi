@@ -26,7 +26,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (52 ms)
+  ✕ renders learn react link (49 ms)
 
   ● renders learn react link
 
@@ -107,7 +107,7 @@ FAIL src/App.test.tsx
             [36m</div>[39m
             [36m<div[39m
               [33mclass[39m=[32m"col"[39m
-              [33mstyle[39m=[32m"text-align: center;"[39m
+              [33mstyle[39m=[32m"text-align: right;"[39m
             [36m>[39m
               [0mIsaac, Dylan, Barry[0m
             [36m</div>[39m
@@ -137,7 +137,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------|---------|----------|---------|---------|-------------------------
-All files                 |    7.01 |     1.13 |    2.27 |    7.65 |                         
+All files                 |    6.91 |     1.07 |    2.27 |    7.52 |                         
  src                      |    5.88 |        0 |   33.33 |    5.88 |                         
   App.tsx                 |     100 |      100 |     100 |     100 |                         
   index.tsx               |       0 |        0 |     100 |       0 | 9-32                    
@@ -145,11 +145,11 @@ All files                 |    7.01 |     1.13 |    2.27 |    7.65 |
  src/assets/quizzes       |     100 |      100 |     100 |     100 |                         
   AdvancedQuiz.ts         |     100 |      100 |     100 |     100 |                         
   BasicQuiz.ts            |     100 |      100 |     100 |     100 |                         
- src/components           |    0.76 |        0 |       0 |    0.86 |                         
-  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 53-261                  
+ src/components           |    0.75 |        0 |       0 |    0.84 |                         
+  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 54-265                  
   Loading.tsx             |      50 |        0 |       0 |      50 | 7                       
   McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 20-174                  
-  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 21-133                  
+  McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 21-130                  
   ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                       
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 29-95                   
   TextResponse.tsx        |       0 |        0 |       0 |       0 | 21-90                   
@@ -158,7 +158,7 @@ All files                 |    7.01 |     1.13 |    2.27 |    7.65 |
   CallChat.ts             |       0 |        0 |       0 |       0 | 78-115                  
   ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                         
   OpenChatStream.ts       |       0 |        0 |       0 |       0 |                         
-  StartingPrompt.ts       |   35.29 |        0 |       0 |    37.5 | 4,9-141,246,250,254,258 
+  StartingPrompt.ts       |   35.29 |        0 |       0 |    37.5 | 4,9-141,247,251,255,259 
   openaiToken.ts          |      75 |       50 |     100 |      75 | 6-7                     
  src/interfaces           |       0 |      100 |       0 |       0 |                         
   PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                         
@@ -184,5 +184,5 @@ All files                 |    7.01 |     1.13 |    2.27 |    7.65 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.788 s
+Time:        3.66 s
 Ran all test suites.
