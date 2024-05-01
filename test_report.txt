@@ -148,7 +148,7 @@ All files                 |    7.01 |     1.13 |    2.27 |    7.65 |
  src/components           |    0.76 |        0 |       0 |    0.86 |                         
   DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 53-261                  
   Loading.tsx             |      50 |        0 |       0 |      50 | 7                       
-  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 20-173                  
+  McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 20-174                  
   McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 21-133                  
   ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                       
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 29-95                   
@@ -184,5 +184,5 @@ All files                 |    7.01 |     1.13 |    2.27 |    7.65 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.738 s
+Time:        3.541 s
 Ran all test suites.
