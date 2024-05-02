@@ -18,7 +18,7 @@
       at Object.<anonymous> (src/controller/CallChat.ts:3:1)
       at Object.<anonymous> (src/components/DisplayQuiz.tsx:9:1)
       at Object.<anonymous> (src/pages/basic-quiz/BasicQuiz.tsx:4:1)
-      at Object.<anonymous> (src/App.tsx:8:1)
+      at Object.<anonymous> (src/App.tsx:9:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
@@ -26,7 +26,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (49 ms)
+  ✕ renders learn react link (47 ms)
 
   ● renders learn react link
 
@@ -55,6 +55,13 @@ FAIL src/App.test.tsx
                 [0mSelect Quiz[0m
               [36m</a>[39m
             [36m</nav>[39m
+            [36m<nav>[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"/results"[39m
+              [36m>[39m
+                [0mResults[0m
+              [36m</a>[39m
+            [36m</nav>[39m
           [36m</header>[39m
           [36m<div>[39m
             [0m404 Not Found[0m
@@ -66,59 +73,36 @@ FAIL src/App.test.tsx
           [36m<div[39m
             [33mclass[39m=[32m"App-footer"[39m
           [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"row"[39m
+            [36m<form[39m
+              [33mclass[39m=[32m""[39m
             [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"col"[39m
-              [36m>[39m
-                [36m<div>[39m
-                  [36m<form[39m
-                    [33mclass[39m=[32m""[39m
-                  [36m>[39m
-                    [36m<div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"container"[39m
-                      [36m>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"row"[39m
-                        [36m>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"col"[39m
-                          [36m>[39m
-                            [36m<input[39m
-                              [33mclass[39m=[32m"form-control"[39m
-                              [33mid[39m=[32m"formApiKey"[39m
-                              [33mplaceholder[39m=[32m"Enter API key:"[39m
-                              [33mtype[39m=[32m"password"[39m
-                              [33mvalue[39m=[32m""[39m
-                            [36m/>[39m
-                          [36m</div>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"col"[39m
-                            [33mstyle[39m=[32m"text-align: left;"[39m
-                          [36m>[39m
-                            [36m<button[39m
-                              [33mclass[39m=[32m"btn btn-nav"[39m
-                              [33mtype[39m=[32m"submit"[39m
-                            [36m>[39m
-                              [0mSubmit[0m
-                            [36m</button>[39m
-                            [0m✗[0m
-                          [36m</div>[39m
-                        [36m</div>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</form>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"App-api-container"[39m
+                [36m>[39m
+                  [36m<div>[39m
+                    [36m<input[39m
+                      [33mclass[39m=[32m"form-control"[39m
+                      [33mid[39m=[32m"formApiKey"[39m
+                      [33mplaceholder[39m=[32m"Enter API key:"[39m
+                      [33mtype[39m=[32m"password"[39m
+                      [33mvalue[39m=[32m""[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"btn btn-nav"[39m
+                      [33mtype[39m=[32m"submit"[39m
+                    [36m>[39m
+                      [0mSubmit[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [0m✗[0m
+                  [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"col"[39m
-                [33mstyle[39m=[32m"text-align: right;"[39m
-              [36m>[39m
-                [0mDevelopers: Isaac, Dylan, Barry[0m
-              [36m</div>[39m
-            [36m</div>[39m
+            [36m</form>[39m
           [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
@@ -145,7 +129,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------|---------|----------|---------|---------|-------------------------
-All files                 |    6.94 |     1.07 |    2.27 |    7.56 |                         
+All files                 |    7.16 |     1.07 |    2.25 |    7.79 |                         
  src                      |   11.76 |        0 |   33.33 |   11.76 |                         
   App.tsx                 |     100 |      100 |     100 |     100 |                         
   index.tsx               |       0 |        0 |     100 |       0 | 9-31                    
@@ -161,7 +145,7 @@ All files                 |    6.94 |     1.07 |    2.27 |    7.56 |
   ProgressBar.tsx         |      50 |      100 |       0 |      50 | 2                       
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 29-95                   
   TextResponse.tsx        |       0 |        0 |       0 |       0 | 21-91                   
-  UserRanking.tsx         |       0 |        0 |       0 |       0 | 26-120                  
+  UserRanking.tsx         |       0 |        0 |       0 |       0 | 26-119                  
  src/controller           |   32.43 |     12.5 |    9.09 |   35.29 |                         
   CallChat.ts             |       0 |        0 |       0 |       0 | 78-115                  
   ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                         
@@ -172,8 +156,9 @@ All files                 |    6.94 |     1.07 |    2.27 |    7.56 |
   PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                         
   QuestionTypes.ts        |       0 |        0 |       0 |       0 |                         
   QuizFlow.ts             |       0 |      100 |       0 |       0 | 4-5                     
- src/pages                |   38.46 |       50 |   16.66 |   38.46 |                         
+ src/pages                |      40 |       50 |   14.28 |      40 |                         
   Home.tsx                |   45.45 |       50 |      25 |   45.45 | 17,20-23,51             
+  Results.tsx             |      50 |      100 |       0 |      50 | 2                       
   SelectQuiz.tsx          |       0 |      100 |       0 |       0 | 6                       
   ViewQuizzes.tsx         |       0 |      100 |       0 |       0 | 8                       
  src/pages/advanced-quiz  |   16.66 |      100 |       0 |   16.66 |                         
@@ -192,5 +177,5 @@ All files                 |    6.94 |     1.07 |    2.27 |    7.56 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.584 s
+Time:        3.566 s
 Ran all test suites.
