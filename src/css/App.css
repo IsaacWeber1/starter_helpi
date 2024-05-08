@@ -160,27 +160,6 @@
 .invalid-key {
   background-color:rgb(184, 73, 116);
 }
-.github-logo-contaier {
-  display: flex;
-  justify-content: center;
-  object-fit: contain;
-}
-
-.github-logo {
-  max-height: 100%;
-}
-
-.github-links {
-  background-color: var(--gift-wrap-purple);
-  text-decoration: inherit;
-  color: var(--off-white);
-  border: 20% solid var(--gift-wrap-purple);
-  border-radius: 5px;
-}
-
-.github-links:hover {
-  background-color: var(--dark-royal-blue);
-}
 
 .quiz-container {
   background: var(--diamond-blue); /* Blue background */
