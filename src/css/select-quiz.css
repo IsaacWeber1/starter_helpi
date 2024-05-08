@@ -8,9 +8,8 @@
     text-align: center;
     border-radius: 25px;
     background-color: var(--dark-royal-blue);
-    min-height: 100px;
+    /* /min-height: 100px; */
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     font-size: calc(10px + 2vmin);

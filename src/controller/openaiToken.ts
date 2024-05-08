@@ -12,7 +12,7 @@ export const getApiKey = (): string => {
 }
 
 // Create an instance of the OpenAI client
-export const openaiToken = new OpenAI({
+export var openaiToken = new OpenAI({
     apiKey: getApiKey(),
     dangerouslyAllowBrowser: true // Be cautious with this setting in production
 });

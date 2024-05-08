@@ -1,0 +1,15 @@
+footer {
+    background-color: var(--british-khaki);
+    display: grid;
+    grid-template-columns: 65% 35%;
+}
+
+.github-name-links {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.api-key-form {
+    display: grid;
+    grid-template-columns: 75% 20% 5%;
+}

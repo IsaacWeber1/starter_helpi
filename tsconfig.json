@@ -20,15 +20,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./",
-      "paths": {
-        "@pages/*": ["pages/*"],
-        "@css/*": ["css/*"],
-        "@public/*": ["public/*"],
-        "@assets/*" : ["assets/*"],
-        "@components/*": ["components/*"]
-      }
+    "paths": {
+      "@src/*": ["src/*"],
+      "@pages/*": ["pages/*"],
+      "@css/*": ["css/*"],
+      "@public/*": ["public/*"],
+      "@assets/*" : ["assets/*"],
+      "@components/*": ["components/*"]
+    }
   },
   "include": [
-    "src",
+    "**/*.ts", "**/*.tsx"
   ]
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { SelectQuiz } from "./pages/SelectQuiz";
@@ -9,12 +9,12 @@ import './css/App.css';
 import { BasicQuiz } from "./pages/basic-quiz/BasicQuiz";
 import { AdvancedQuiz } from "./pages/advanced-quiz/AdvancedQuiz";
 import { ChatGBTPage } from "./pages/chat-gbt-page/ChatGBTPage";
+import gitLogo from "src/imgs/github-mark-white.svg";
 import { Secret } from "./pages/Secret";
 
 export default function App(): JSX.Element {
-  const [submitted, setSubmit] = useState<boolean>(false);
-
-  return ( <>
+  return ( 
+  <div className="main-container">
     <Router>
       <div className="App">
         <header className="App-header">
@@ -49,15 +49,18 @@ export default function App(): JSX.Element {
         </Routes>
 
       </div>
+      <footer> 
+          <ApiKeyInput></ApiKeyInput>
+          <div className="github-name-links">
+            <div className="github-logo-container">
+              <img className="github-logo" src={gitLogo} alt="Git-logo"></img>
+            </div>
+            <a className="github-links" href="https://github.com/barrypreal">Barry</a>
+            <a className="github-links" href="https://github.com/DylanMinchhoff">Dylan</a>
+            <a className="github-links" href="https://github.com/IsaacWeber1">Issac</a>
+          </div>
+      </footer>
     </Router>
-    <div style={{backgroundColor: "#eadbc8"}}>
-    <div className="App-footer"> 
-          <ApiKeyInput
-            submitted={submitted}
-            setSubmit={setSubmit}
-          ></ApiKeyInput>
-      </div>
-      </div>
-   </>
+   </div>
   );
 }

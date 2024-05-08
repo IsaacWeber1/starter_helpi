@@ -223,16 +223,29 @@ export const createNewQuestions = () => {
 
 export const createFinalResponse = (questionAns: QuestionAnswer[]) => {
     return(
-        "The user has entered the following question answers in response to their career quiz:\n" +
+        `You are an advanced AI system designed to assist in career exploration. You are given the following experience report on the user.\n` +
+
         mapQuestionsToAnswers(questionAns) +
-        "\nBased on the information provided, here is your personalized career advice in the following JSON format:\n" +
-        `{\n` +
-        `    "summary": "Your interests in [fields from user answers] and your background in [education from user answers] suggest several exciting career paths.",\n` +
-        `    "advice": "Given your stage in [education/career stage from user answers], consider [actionable steps such as specific internships, certifications, or professional networks].",\n` +
-        `    "interactiveElements": "Explore the following links to deepen your understanding of each area: [link1], [link2], [link3], tailored to your interests in [fields from user answers].",\n` +
-        `    "recommendations": "Careers such as [specific careers based on user's answers] could be particularly suitable for you, aligning with your skills and goals.",\n` +
-        `    "reasoning": "These paths are recommended based on current industry demand and your personal preferences discussed earlier in the quiz.",\n` +
-        `}\n\n` +
-        "This advice is tailored to assist you in making informed decisions about your potential career paths."
+        "\nBased on the information provided, please create a list of possible career goals in the following JSON format:\n" +
+        `{
+            "careers": [
+                {
+                    "role": "Specify the role, tailored to the user's level of experience.",
+                    "description": "Provide a detailed description of what pursuing this career entails.",
+                    "benefits": [
+                        "List potential benefits of this career, ideally connecting them to the user's expressed interests or goals.",
+                        "Additional benefit related to the user's background."
+                    ],
+                    "challenges": [
+                        "Describe possible challenges associated with this career.",
+                        "Relate these challenges to the user's past experiences or concerns."
+                    ],
+                    "links": [
+                        "Provide links to more information about this career.",
+                        "Include links to job opportunities or relevant academic programs."
+                    ]
+                }
+            ]
+        }`
     );
 }
