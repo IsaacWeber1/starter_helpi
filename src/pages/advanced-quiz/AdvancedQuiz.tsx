@@ -11,7 +11,7 @@ export const AdvancedQuiz = () => {
     const [questionsAnswered, setQuestionsAnswered] = useState<number>(0);
     const [currTotQuestions, setCurrTotQuestions] = useState<number>(5);
     const totalQuestions = 20;
-    const initialMax = 7
+    const initialMax = 9
     return(
     <div className="basicQuiz-container">
         <ProgressBar

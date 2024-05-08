@@ -230,7 +230,10 @@ export function DisplayQuiz(
                                     <h5>Links:</h5>
                                     <ul style={{listStyleType: 'disk'}}>
                                         {career.links.map((link, index) => (
-                                            <a href={link} key={index}>{link}</a>
+                                            <>
+                                                <a href={link} key={index}>{link}</a>
+                                                <br></br>
+                                            </>
                                         ))}
                                     </ul>
                                 </li>
