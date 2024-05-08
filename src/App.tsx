@@ -40,9 +40,7 @@ export default function App(): JSX.Element {
         />
           <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
-
-      </div>
-      <footer className=""> 
+        <footer className=""> 
           <ApiKeyInput></ApiKeyInput>
           <div className="github-name-links">
             <div className="github-logo-container">
@@ -52,7 +50,9 @@ export default function App(): JSX.Element {
             <a className="github-links" href="https://github.com/DylanMinchhoff">Dylan</a>
             <a className="github-links" href="https://github.com/IsaacWeber1">Issac</a>
           </div>
-      </footer>
+        </footer>
+      </div>
+      
     </Router>
    </div>
   );

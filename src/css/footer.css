@@ -1,4 +1,7 @@
 footer {
+    position: fixed; 
+    bottom:0%;
+    width:100%; 
     background-color: var(--dawn-dish-blue);
     display: grid;
     grid-template-columns: 65% 35%;
@@ -8,6 +11,7 @@ footer {
     max-height: 2em;
     display: flex;
     justify-content: space-around;
+    
 }
 
 .github-logo-contaier {
@@ -24,7 +28,7 @@ footer {
     background-color: var(--gift-wrap-purple);
     text-decoration: inherit;
     color: var(--off-white);
-    border: 20% solid var(--gift-wrap-purple);
+    border: 5px solid var(--gift-wrap-purple);
     border-radius: 5px;
   }
   
