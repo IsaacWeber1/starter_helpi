@@ -1,6 +1,7 @@
 @import url(./questions.css);
 @import url(./footer.css);
 @import url(./home.css);
+@import url(./quiz-progress-bar.css);
 
 :root {
   --buttonColor1 : rgb(118, 165, 219);
@@ -36,6 +37,7 @@ body {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 code {
