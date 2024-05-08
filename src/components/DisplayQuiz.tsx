@@ -39,7 +39,7 @@ export function DisplayQuiz(
         initialMax,
         totalQuestions,
         currTotQuestions,
-        setQuestionsAnswerd,
+        setQuestionsAnswered,
         setCurrTotQuestions
     } 
     : 
@@ -50,7 +50,7 @@ export function DisplayQuiz(
         initialMax: number,
         totalQuestions: number,
         currTotQuestions: number,
-        setQuestionsAnswerd : (questionsAnswerd: number) => void 
+        setQuestionsAnswered : (questionsAnswerd: number) => void 
         setCurrTotQuestions: (currTotQuestions: number) => void
     }
     ): JSX.Element {
@@ -164,7 +164,7 @@ export function DisplayQuiz(
                 newAnswers.splice(questionsAnswerd, 1, {questionId: currentQuestionId, answer: answer})
                 setAnswers(newAnswers);
             }
-            setQuestionsAnswerd(questionsAnswerd + 1); // increments questions answered
+            setQuestionsAnswered(questionsAnswerd + 1); // increments questions answered
 
             if (nextQuestionId === "") {
                 setIsQuizComplete(true); // End of the curQuiz
@@ -174,7 +174,7 @@ export function DisplayQuiz(
             }
         } 
         else { // backwards
-            setQuestionsAnswerd(questionsAnswerd - 1);
+            setQuestionsAnswered(questionsAnswerd - 1);
             const nextQuestionId = determineNextQuestionId(currentQuestionId, curQuiz, false);
             setCurrentQuestionId(await nextQuestionId);
         }
