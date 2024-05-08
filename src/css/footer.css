@@ -5,8 +5,8 @@ footer {
 }
 
 .github-name-links {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 .api-key-form {

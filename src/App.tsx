@@ -42,7 +42,7 @@ export default function App(): JSX.Element {
         </Routes>
 
       </div>
-      <footer> 
+      <footer className=""> 
           <ApiKeyInput></ApiKeyInput>
           <div className="github-name-links">
             <div className="github-logo-container">
