@@ -42,10 +42,6 @@ nav {
   justify-content: space-between;
 }
 
-.App-misc-text {
-  color: var(--dark-royal-blue)
-}
-
 .App-link {
   color: #61dafb;
 }
