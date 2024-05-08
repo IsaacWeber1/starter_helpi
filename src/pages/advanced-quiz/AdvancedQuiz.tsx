@@ -13,6 +13,7 @@ export const AdvancedQuiz = () => {
     const totalQuestions = 20;
     const initialMax = 7
     return(
+
     <div className="basicQuiz-container">
         <ProgressBar
             value={questionsAnswered}
@@ -26,7 +27,7 @@ export const AdvancedQuiz = () => {
                 totalQuestions={totalQuestions}
                 questionsAnswerd={questionsAnswered}
                 currTotQuestions={currTotQuestions}
-                setQuestionsAnswerd={setQuestionsAnswered}
+                setQuestionsAnswered={setQuestionsAnswered}
                 setCurrTotQuestions={setCurrTotQuestions}
             />
         </Suspense>

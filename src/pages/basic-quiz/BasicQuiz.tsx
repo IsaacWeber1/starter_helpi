@@ -31,7 +31,7 @@ export const BasicQuiz = () => {
                         totalQuestions={totalQuestions}
                         questionsAnswerd={questionsAnswered}
                         currTotQuestions={currTotQuestions}
-                        setQuestionsAnswerd={setQuestionsAnswered}
+                        setQuestionsAnswered={setQuestionsAnswered}
                         setCurrTotQuestions={setCurrTotQuestions}
                     />
                 </Suspense>

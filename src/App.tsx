@@ -10,6 +10,8 @@ import { BasicQuiz } from "./pages/basic-quiz/BasicQuiz";
 import { AdvancedQuiz } from "./pages/advanced-quiz/AdvancedQuiz";
 import { ChatGBTPage } from "./pages/chat-gbt-page/ChatGBTPage";
 import gitLogo from "src/imgs/github-mark-white.svg";
+import { Secret } from "./pages/Secret";
+
 export default function App(): JSX.Element {
   return ( 
   <div className="main-container">
@@ -23,13 +25,18 @@ export default function App(): JSX.Element {
             <Link to="/select-quiz">Select Quiz</Link>
           </nav>
           <nav> 
-            <Link to="/results">Results</Link></nav>
+            <Link to="/results">Results</Link>
+          </nav>
+            <nav>
+              <Link to="/secret">Secret</Link>
+            </nav>
         </header>
         <Routes>
           <Route path="starter_helpi/*" element={<Home />} />
           <Route path="/select-quiz" element={<SelectQuiz />}/>
           <Route path="/chat-gbt-page" element={<ChatGBTPage />}/>
           <Route path="/results" element={<Results />}/>
+          <Route path="/secret" element={<Secret />}/>
           <Route 
           path="/basic-quiz"
           element={<BasicQuiz/>}
