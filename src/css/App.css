@@ -61,6 +61,15 @@
   overflow-y: scroll;
 }
 
+.App-career-container {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid var(--gift-wrap-purple);
+  border-radius: 5px; 
+  background-color: var(--ocean-eyes);
+  list-style-type: disk;
+}
+
 .quiz-tooltip{
   cursor: pointer;
   color: var(--dawn-dish-blue);
