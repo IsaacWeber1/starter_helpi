@@ -5,33 +5,29 @@
 }
 
 .App-header {
-  background-color: var(--british-khaki);
-  min-height: 100px;
+  min-height: 3em;
+  color: var(--dark-royal-blue);
+}
+
+nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.nav-text-link {
+  width: 100%;
   font-size: calc(10px + 2vmin);
-  color: var(--dark-royal-blue);
+  text-decoration: inherit;
+  background-color: var(--almost-teal);
+  color: var(--off-tan);
 }
 
-.App-header a,
-.App-header a:visited { /* This targets both unvisited and visited links */
-  color: var(--dark-royal-blue); /* Set your desired color here */
-  text-decoration: none; /* Removes the underline from links */
-  border: solid 2px;
-  padding: 10px;
-}
-
-.App-header a:hover,
-.App-header a:focus {
-  text-decoration: underline; /* Adds an underline when hovering or focusing on the link */
-  color: var(--dawn-dish-blue); /* Optional: Changes color on hover or focus for better user experience */
-}
-
-.App-api-container {
-  display: grid;
-  grid-template: "myArea myArea . .";
+.nav-text-link:hover {
+  background-color: var(--ocean-eyes);
+  color: var(--gift-wrap-purple);
+  transition: all ease 1.5s;
 }
 
 .App-footer {
