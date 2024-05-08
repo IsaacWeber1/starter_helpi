@@ -13,7 +13,13 @@ export const AdvancedQuiz = () => {
     const totalQuestions = 20;
     const initialMax = 9
     return(
-    <div className="basicQuiz-container">
+    <div
+        style={{
+            padding: 'vh',
+            paddingBottom: '100px'
+        }}
+    >
+        <>
         <ProgressBar
             value={questionsAnswered}
             max={currTotQuestions}
@@ -30,5 +36,6 @@ export const AdvancedQuiz = () => {
                 setCurrTotQuestions={setCurrTotQuestions}
             />
         </Suspense>
+        </>
     </div>)
 }

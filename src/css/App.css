@@ -42,8 +42,10 @@
   flex-direction: relative;
   align-items: center;
   padding-top: relative;
-  bottom: 0%;
   justify-content: space-between;
+  position: relative;
+  margin: calc(vh/2);
+  margin-top: 100%;
 }
 
 .App-misc-text {
@@ -199,6 +201,7 @@
   border-radius: 10px;
   width: 75%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  margin-top: 5%;
-  margin-bottom: 10%;
+  margin: calc(vw/2);
+  margin-left: calc(vw/2);
+  margin-top: 2%;
 }

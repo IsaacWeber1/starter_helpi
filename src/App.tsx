@@ -11,10 +11,18 @@ import { AdvancedQuiz } from "./pages/advanced-quiz/AdvancedQuiz";
 import { ChatGBTPage } from "./pages/chat-gbt-page/ChatGBTPage";
 import gitLogo from "src/imgs/github-mark-white.svg";
 export default function App(): JSX.Element {
+
+
   return ( 
   <div className="main-container">
     <Router>
-      <div className="App">
+      <div className="App"
+      style={{
+        padding: 'vh',
+        margin: 'vh'
+
+    }}
+      >
         <header className="App-header">
           <nav>
             <Link to="starter_helpi/">Home</Link>
@@ -40,9 +48,8 @@ export default function App(): JSX.Element {
         />
           <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
-
       </div>
-      <footer> 
+      <footer>
           <ApiKeyInput></ApiKeyInput>
           <div className="github-name-links">
             <div className="github-logo-container">
@@ -50,7 +57,7 @@ export default function App(): JSX.Element {
             </div>
             <a className="github-links" href="https://github.com/barrypreal">Barry</a>
             <a className="github-links" href="https://github.com/DylanMinchhoff">Dylan</a>
-            <a className="github-links" href="https://github.com/IsaacWeber1">Issac</a>
+            <a className="github-links" href="https://github.com/IsaacWeber1">Isaac</a>
           </div>
       </footer>
     </Router>
