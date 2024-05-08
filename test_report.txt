@@ -24,7 +24,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (73 ms)
+  ✕ renders learn react link (71 ms)
 
   ● renders learn react link
 
@@ -151,7 +151,7 @@ FAIL src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s       
 --------------------------|---------|----------|---------|---------|-------------------------
-All files                 |     9.5 |     2.12 |     5.1 |   10.07 |                         
+All files                 |    9.25 |     2.08 |    4.79 |    9.79 |                         
  src                      |    6.66 |        0 |   33.33 |    6.66 |                         
   App.tsx                 |     100 |      100 |     100 |     100 |                         
   index.tsx               |       0 |        0 |     100 |       0 | 9-30                    
@@ -159,8 +159,8 @@ All files                 |     9.5 |     2.12 |     5.1 |   10.07 |
  src/assets/quizzes       |     100 |      100 |     100 |     100 |                         
   AdvancedQuiz.ts         |     100 |      100 |     100 |     100 |                         
   BasicQuiz.ts            |     100 |      100 |     100 |     100 |                         
- src/components           |    0.75 |        0 |       0 |    0.84 |                         
-  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 54-265                  
+ src/components           |    0.72 |        0 |       0 |     0.8 |                         
+  DisplayQuiz.tsx         |       0 |        0 |       0 |       0 | 57-441                  
   Loading.tsx             |      50 |        0 |       0 |      50 | 7                       
   McMultiResponse.tsx     |       0 |        0 |       0 |       0 | 20-174                  
   McSingleResponse.tsx    |       0 |        0 |       0 |       0 | 21-130                  
@@ -199,5 +199,5 @@ All files                 |     9.5 |     2.12 |     5.1 |   10.07 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.562 s
+Time:        3.552 s
 Ran all test suites.
