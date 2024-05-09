@@ -4,7 +4,9 @@
     grid-template-columns: auto;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    margin-top: 10%;
+    margin: auto;
+    height: 50vh;
     width: 100%
 }
 

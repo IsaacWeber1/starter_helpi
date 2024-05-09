@@ -1,6 +1,5 @@
 import { dummyQuiz } from "src/assets/test_data/dummyQuiz"
 import { Suspense, useState } from "react"
-import { Row, Container } from "react-bootstrap"
 // import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
 import { DisplayQuiz } from "src/components/DisplayQuiz"
 import { Loading } from "src/components/Loading"
