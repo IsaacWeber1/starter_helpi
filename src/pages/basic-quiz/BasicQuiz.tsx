@@ -1,6 +1,7 @@
+import { dummyQuiz } from "src/assets/test_data/dummyQuiz"
 import { Suspense, useState } from "react"
 import { Row, Container } from "react-bootstrap"
-import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
+// import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
 import { DisplayQuiz } from "src/components/DisplayQuiz"
 import { Loading } from "src/components/Loading"
 import { ProgressBar } from "src/components/ProgressBar"
@@ -8,8 +9,9 @@ import { ProgressBar } from "src/components/ProgressBar"
 
 
 export const BasicQuiz = () => {
+    const quiz = dummyQuiz;
     const [questionsAnswered, setQuestionsAnswered] = useState<number>(0);
-    const [currTotQuestions, setCurrTotQuestions] = useState<number>(3);
+    const [currTotQuestions, setCurrTotQuestions] = useState<number>(Object.keys(quiz).length);
     const totalQuestions = 20;
     const initialMax = 7
     return(
@@ -25,7 +27,7 @@ export const BasicQuiz = () => {
             <Row>
                 <Suspense fallback={<Loading type="Basic Quiz"/>}>
                     <DisplayQuiz 
-                        quiz={basicQuiz}
+                        quiz={dummyQuiz}
                         title="Basic Quiz"
                         initialMax={initialMax}
                         totalQuestions={totalQuestions}

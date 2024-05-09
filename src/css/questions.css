@@ -1,4 +1,8 @@
 .response-question {
     width: 100%;
+    padding: 0.5em;
 }
 
+.multi-response-question {
+    padding: 0.5em;
+}
