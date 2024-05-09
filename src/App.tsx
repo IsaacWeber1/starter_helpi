@@ -13,10 +13,18 @@ import gitLogo from "src/imgs/github-mark-white.svg";
 import { Secret } from "./pages/Secret";
 
 export default function App(): JSX.Element {
+
+
   return ( 
   <div className="main-container">
     <Router>
-      <div className="App">
+      <div className="App"
+      style={{
+        padding: 'vh',
+        margin: 'vh'
+
+    }}
+      >
         <header className="App-header">
           <nav>
             <Link className="nav-text-link" to="starter_helpi/">Home</Link>
@@ -48,7 +56,7 @@ export default function App(): JSX.Element {
             </div>
             <a className="github-links" href="https://github.com/barrypreal">Barry</a>
             <a className="github-links" href="https://github.com/DylanMinchhoff">Dylan</a>
-            <a className="github-links" href="https://github.com/IsaacWeber1">Issac</a>
+            <a className="github-links" href="https://github.com/IsaacWeber1">Isaac</a>
           </div>
         </footer>
       </div>
