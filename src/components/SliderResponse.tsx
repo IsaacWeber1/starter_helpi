@@ -84,6 +84,9 @@ export function SliderResponse({
             <Form.Group>
                 <Form.Label>{localAnswer}</Form.Label>
                 <Form.Range
+                    className="win10-thumb"
+                    min={0}
+                    max={100}
                     value={localAnswer}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => setLocalAnswer(event.target.value)}
                     size={25}

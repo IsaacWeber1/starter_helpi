@@ -16,27 +16,23 @@ export const BasicQuiz = () => {
     const initialMax = 7
     return(
     <div className="App-quiz">
-        <Container>
-            <Row>
-                <ProgressBar
-                    value={questionsAnswered}
-                    max={totalQuestions}
+        <div className="quiz-container-o">
+            <ProgressBar
+                value={questionsAnswered}
+                max={totalQuestions}
+            />
+            <Suspense fallback={<Loading type="Basic Quiz"/>}>
+                <DisplayQuiz 
+                    quiz={dummyQuiz}
+                    title="Basic Quiz"
+                    initialMax={initialMax}
+                    totalQuestions={totalQuestions}
+                    questionsAnswerd={questionsAnswered}
+                    currTotQuestions={currTotQuestions}
+                    setQuestionsAnswerd={setQuestionsAnswered}
+                    setCurrTotQuestions={setCurrTotQuestions}
                 />
-            </Row>
-            <Row>
-                <Suspense fallback={<Loading type="Basic Quiz"/>}>
-                    <DisplayQuiz 
-                        quiz={dummyQuiz}
-                        title="Basic Quiz"
-                        initialMax={initialMax}
-                        totalQuestions={totalQuestions}
-                        questionsAnswerd={questionsAnswered}
-                        currTotQuestions={currTotQuestions}
-                        setQuestionsAnswerd={setQuestionsAnswered}
-                        setCurrTotQuestions={setCurrTotQuestions}
-                    />
-                </Suspense>
-            </Row>
-        </Container>
+            </Suspense>
+        </div>
     </div>)
 }

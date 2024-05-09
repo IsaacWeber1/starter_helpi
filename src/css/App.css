@@ -156,8 +156,14 @@ nav {
   padding: 20px;
   border-radius: 10px;
   width: 75%;
-  height: 90%;
+  height: fit-content;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+}
+
+.quiz-container-o {
+  display: grid;
+  grid-template-rows: auto auto;
+  margin: 1em;
 }
