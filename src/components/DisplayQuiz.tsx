@@ -12,6 +12,7 @@ import { CreateBasicStartingPrompt, CreateStartingPrompt, createFinalResponse } 
 import { QuestionAnswer } from "src/interfaces/PromptQuestionsSetup";
 import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
+import { HiChevronDown, } from "react-icons/hi2";
 
 type DisplayQuizProps = Record<string, Question>;
 
@@ -20,13 +21,15 @@ type QuestionAns = {
     answer: string
 }
 
-type AnswerResponse = {
-    summary: string,
-    advice: string,
-    interactiveElements: string,
-    recommendations: string,
-    reasoning: string
+type Career = {
+    role: string, 
+    description: string,
+    benefits: string[]
+    challenges: string[]
+    links: string[]
 }
+
+type FinalReport = {careers: Career[]};
 
 export function DisplayQuiz(
     { 
@@ -36,7 +39,7 @@ export function DisplayQuiz(
         initialMax,
         totalQuestions,
         currTotQuestions,
-        setQuestionsAnswerd,
+        setQuestionsAnswered,
         setCurrTotQuestions
     } 
     : 
@@ -47,7 +50,7 @@ export function DisplayQuiz(
         initialMax: number,
         totalQuestions: number,
         currTotQuestions: number,
-        setQuestionsAnswerd : (questionsAnswerd: number) => void 
+        setQuestionsAnswered : (questionsAnswerd: number) => void 
         setCurrTotQuestions: (currTotQuestions: number) => void
     }
     ): JSX.Element {
@@ -161,29 +164,149 @@ export function DisplayQuiz(
                 newAnswers.splice(questionsAnswerd, 1, {questionId: currentQuestionId, answer: answer})
                 setAnswers(newAnswers);
             }
-            setQuestionsAnswerd(questionsAnswerd + 1); // increments questions answered
+            setQuestionsAnswered(questionsAnswerd + 1); // increments questions answered
 
             if (nextQuestionId === "") {
                 setIsQuizComplete(true); // End of the curQuiz
-            } 
+            }
             else {
                 setCurrentQuestionId(nextQuestionId); // Move to the next question
             }
         } 
         else { // backwards
-            setQuestionsAnswerd(questionsAnswerd - 1);
+            setQuestionsAnswered(questionsAnswerd - 1);
             const nextQuestionId = determineNextQuestionId(currentQuestionId, curQuiz, false);
             setCurrentQuestionId(await nextQuestionId);
         }
         setIsLoading(false);
     }
     // if(Object.keys(quiz).length === 0) createQuiz();
+
+    type RenderReportProps = {
+        finalReport: FinalReport;
+        currRoles: string[];
+        updateRoles: (role: string) => void;
+    };
+    
+    const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, updateRoles }) => {
+        return (
+            <>
+                <h2>Final Results:</h2>
+                {finalReport.careers.map((career: Career) => (
+                    <div 
+                        className="App-career-container"
+                        key={career.role}
+                    >
+                        <h3>{career.role}</h3>
+                        <HiChevronDown 
+                            onClick={() => updateRoles(career.role)}
+                            size={20}
+                            style={{position: "relative"}}
+                        ><strong>{career.role}</strong></HiChevronDown>
+                        <div style={{textAlign: 'left'}}>
+                        {currRoles.includes(career.role) && (
+                            <ol style={{listStyleType: 'none'}}>
+                                <li><strong>Role:</strong> {career.description}</li>
+                                <br></br>
+                                <li>
+                                    <h5>Benefits:</h5>
+                                    <ul style={{listStyleType: 'disk'}}>
+                                        {career.benefits.map((benefit, index) => (
+                                            <p key={index} style={{listStyleType: 'disk'}}>{benefit}</p>
+                                        ))}
+                                    </ul>
+                                </li>
+                                <br></br>
+                                <li>
+                                    <h5>Challenges:</h5>
+                                    <ul style={{listStyleType: 'disk'}}>
+                                        {career.challenges.map((challenge, index) => (
+                                            <p key={index}>{challenge}</p>
+                                        ))}
+                                    </ul>
+                                </li>
+                                <br></br>
+                                <li>
+                                    <h5>Links:</h5>
+                                    <ul style={{listStyleType: 'disk'}}>
+                                        {career.links.map((link, index) => (
+                                            <a href={link} key={index}>{link}</a>
+                                        ))}
+                                    </ul>
+                                </li>
+                            </ol>
+                        )}
+                        </div>
+                    </div>
+                ))}
+            </>
+        );
+    };
+    
+    // const exampleReport: FinalReport = {careers: [
+    //         {
+    //             "role": "Data Scientist",
+    //             "description": "Responsible for analyzing large sets of structured and unstructured data to derive actionable insights and solutions in strategic areas of business.",
+    //             "benefits": [
+    //                 "High demand in tech and finance sectors",
+    //                 "Opportunities for remote work",
+    //                 "Excellent salary and growth prospects"
+    //             ],
+    //             "challenges": [
+    //                 "Requires continuous skill upgrades",
+    //                 "Handling very large datasets can be complex",
+    //                 "Need to translate technical findings to non-technical stakeholders"
+    //             ],
+    //             "links": [
+    //                 "https://www.bls.gov/ooh/math/data-scientists.htm",
+    //                 "https://datascience.udacity.com/"
+    //             ]
+    //         },
+    //         {
+    //             "role": "Software Engineer",
+    //             "description": "Designs, develops, and implements software solutions based on user requirements and industry trends.",
+    //             "benefits": [
+    //                 "Flexible working hours",
+    //                 "High job satisfaction",
+    //                 "Good team collaboration environment"
+    //             ],
+    //             "challenges": [
+    //                 "Can involve long hours of debugging",
+    //                 "Sometimes requires working with legacy code",
+    //                 "Rapidly changing technology landscape"
+    //             ],
+    //             "links": [
+    //                 "https://stackoverflow.com/",
+    //                 "https://github.com/"
+    //             ]
+    //         },
+    //         {
+    //             "role": "UX Designer",
+    //             "description": "Focuses on creating engaging interfaces with logical and thought-out behaviors and actions.",
+    //             "benefits": [
+    //                 "High impact on user satisfaction",
+    //                 "Creativity-driven job role",
+    //                 "Opportunities for contract and freelance work"
+    //             ],
+    //             "challenges": [
+    //                 "Must keep up with changing design trends",
+    //                 "Balancing user needs with business goals",
+    //                 "Sometimes restricted by technology limits"
+    //             ],
+    //             "links": [
+    //                 "https://www.behance.net/",
+    //                 "https://www.adobe.com/products/xd.html"
+    //             ]
+    //         }
+    //     ]}
+    
     
     const DisplayResults = () => {
         const questionAns: QuestionAnswer[] = answers.map((q: QuestionAns) => ({question: curQuiz[q.questionId], answer: q.answer}));
         const [response, setResponse] = useState<OpenAI.ChatCompletion>();
         const [loaded, setLoaded] = useState(false);
-    
+        const [currRoles, setCurrRoles] = useState<string[]>([]); 
+
         useEffect(() => {
             async function getFinalResponse() {
                 const response = await addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
@@ -200,22 +323,75 @@ export function DisplayQuiz(
 
         const finalAns = response.choices[response.choices.length-1].message.content;
         if(finalAns == null) return<>Error Occured</>
-        const finalResponse: AnswerResponse = JSON.parse(finalAns);
+        const finalResponse:FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
+
+        function updateRoles (newRole: string) {
+            // const newRoles: string[] = currRoles.includes(newRole) 
+            //     ? [...currRoles].filter((currRole: string) => (currRole !== newRole))
+            //     : [...currRoles, newRole];
+            //     setCurrRoles(newRoles);
+            setCurrRoles(prevRoles => 
+                prevRoles.includes(newRole)
+                ? prevRoles.filter(role => role !== newRole)
+                : [...prevRoles, newRole]
+            );
     
-        return (
-            <>
-                <h2>Career Report Summary</h2>
-                <p>{finalResponse.summary}</p>
-                <h3>Detailed Advice</h3>
-                <p>{finalResponse.advice}</p>
-                <h3>Explore Further</h3>
-                <p>{finalResponse.interactiveElements}</p>
-                <h3>Recommended Career Paths</h3>
-                <p>{finalResponse.recommendations}</p>
-                <h3>Why These Paths?</h3>
-                <p>{finalResponse.reasoning}</p>
-            </>
-        );
+        }
+        //maybe try using HiChevronDoubleUp when dropdown is down
+
+        return <RenderReport finalReport={finalResponse} currRoles={currRoles} updateRoles={updateRoles} />;
+    
+        // return (
+        //     <>
+        //         <h2>Final Results:</h2>
+        //         {finalResponse.careers.map((career: Career) => (
+        //             <div 
+        //                 className="App-career-container"
+        //                 key={career.role}
+        //             > {/* Assuming role is unique */}
+        //                 <h3>{career.role}</h3>
+        //                 <HiChevronDown 
+        //                     onClick={() => updateRoles(career.role)}
+        //                     size={20}
+        //                     style={{position: "relative"}}
+        //                 ><strong>{career.role}</strong></HiChevronDown>
+        //                 <div style={{textAlign: 'left'}}>
+        //                 {currRoles.includes(career.role) && (
+        //                     <ul
+        //                         style={{listStyleType:'none'}}
+        //                     >
+        //                         <li><strong>Role:</strong> {career.description}</li>
+        //                         <br></br>
+        //                         <li>
+        //                             <h3>Benefits:</h3>
+        //                             <ul
+        //                                 style={{listStyleType: 'disk'}}
+        //                             >
+        //                                 {career.benefits.map((benefit, index) => (
+        //                                     <li key={index}>{benefit}</li> // Not ideal if benefits can change
+        //                                 ))}
+        //                             </ul>
+        //                         </li>
+        //                         <br></br>
+        //                         <li>
+        //                             {career.challenges.map((challenge, index) => (
+        //                                 <li key={index}>{challenge}</li> // Not ideal if challenges can change
+        //                             ))}
+        //                         </li>
+        //                         <br></br>
+        //                         <li>
+        //                             {career.links.map((link, index) => (
+        //                                 <a href={link} key={index}>{link}</a> // Not ideal if links can change
+        //                             ))}
+        //                         </li>
+        //                     </ul>
+        //                 )}
+        //                 </div>
+        //         </div>
+        //         ))}
+
+        //     </>
+        // );
     }
     
 
