@@ -1,7 +1,7 @@
 .App {
   height: 100%;
   text-align: center;
-  background-color: var(--off-tan);
+  background-color: var(--off-white);
 }
 
 .App-header {
@@ -48,7 +48,6 @@ nav {
 
 .App-quiz {
   text-align: center;
-  background-color: var(--off-tan);
 }
 
 .quiz-tooltip{

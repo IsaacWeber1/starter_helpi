@@ -94,9 +94,10 @@ export function McSingleResponse({
             <Form>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
                     {options.map((option, idx) => (
-                        <li key={idx}>
+                        <li key={idx}
+                            className='multi-response-question'>
                             <ToggleButton
-                                className="App-quiz"
+                                className="App-quiz response-question"
                                 id={`option-${idx}`}
                                 type="radio"
                                 variant={localAnswer === option ? "selected" : "single-selected"}

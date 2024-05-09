@@ -21,16 +21,30 @@ const GeneratingNextQuestionLoading = () => {
 }
 
 const FinalReportLoading = () => {
-    return <h1>Generating Final Career Report</h1>
+    return <GenericLoading/>
+    // return <h1>Generating Final Career Report</h1>
 }
 
 const GenericLoading = () => {
     return(
     <>
-        <div className="geneeric-loading">
-            <div className="spin-section-1"></div>
-            <div className="spin-section-2"></div>
-            <div className="spin-section-3"></div>
+        <div className="generic-loading-container-o">
+            <div className="generic-loading-container stack"
+            style={{scale: "50%", rotate: "180deg"}}>
+                <div className="spin-section g-l-section-ol-1"></div>
+                <div className="spin-section g-l-section-ol-2"></div>
+            </div>
+            <div className="generic-loading-container stack"
+                style={{scale: "75%", rotate: "90deg"}}>
+                <div className="spin-section g-l-section-ol-1"></div>
+                <div className="spin-section g-l-section-ol-2"></div>
+            </div>
+            <div className="generic-loading-container stack"
+                style={{scale: "100%", rotate: "0deg"}}>
+                <div className="spin-section g-l-section-ol-1"></div>
+                <div className="spin-section g-l-section-ol-2"></div>
+            </div>
         </div>
+        
     </>);
 }
