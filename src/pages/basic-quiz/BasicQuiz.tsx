@@ -1,14 +1,14 @@
-import { dummyQuiz } from "src/assets/test_data/dummyQuiz"
 import { Suspense, useState } from "react"
 // import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
 import { DisplayQuiz } from "src/components/DisplayQuiz"
 import { Loading } from "src/components/Loading"
 import { ProgressBar } from "src/components/ProgressBar"
+import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
 
 
 
 export const BasicQuiz = () => {
-    const quiz = dummyQuiz;
+    const quiz = basicQuiz;
     const [questionsAnswered, setQuestionsAnswered] = useState<number>(0);
     const [currTotQuestions, setCurrTotQuestions] = useState<number>(Object.keys(quiz).length);
     const totalQuestions = 20;
@@ -22,7 +22,7 @@ export const BasicQuiz = () => {
             />
             <Suspense fallback={<Loading type="Basic Quiz"/>}>
                 <DisplayQuiz 
-                    quiz={dummyQuiz}
+                    quiz={quiz}
                     title="Basic Quiz"
                     initialMax={initialMax}
                     totalQuestions={totalQuestions}

@@ -31,7 +31,7 @@ export function ApiKeyInput(): JSX.Element {
     async function getVaildation() {
 
 
-      // setValidKey(await verifyAPIKey(apiKey));
+      setValidKey(await verifyAPIKey(apiKey));
       setValidKey(true);
     }
     // this only checks for validation once the form has been submitted
