@@ -17,11 +17,10 @@ export const BasicQuiz = () => {
     return(
     <div className="App-quiz">
         <Container>
-            <br></br>
             <Row>
                 <ProgressBar
                     value={questionsAnswered}
-                    max={currTotQuestions}
+                    max={totalQuestions}
                 />
             </Row>
             <Row>

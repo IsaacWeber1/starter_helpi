@@ -54,8 +54,8 @@ export function SliderResponse({
 
     
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+        <div>
+            <div className='question-header'>
                 <h4 ref={questionRef} style={{maxWidth: "60%"}}>{question}</h4>
                 <BsFillInfoCircleFill className="quiz-tooltip"
                     onMouseEnter={() => setTooltip(description)}

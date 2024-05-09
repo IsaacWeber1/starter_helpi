@@ -1,0 +1,27 @@
+
+.generic-loading[value] {
+--background: conic-gradient(#31c6f7 var(--p),lightgrey 0); 
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--background);
+  mask: radial-gradient(#0000 59%,#000 60% 70%,#0000 71%)
+}
+
+progress[value]::-webkit-progress-bar {
+  background: var(--background);
+}
+progress[value]::-webkit-progress-value {
+  background: #0000;
+}
+progress[value]::-moz-progress-bar {
+  background: #0000;
+}
