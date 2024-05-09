@@ -29,10 +29,7 @@ export function ApiKeyInput(): JSX.Element {
 
   useEffect(() => {
     async function getVaildation() {
-
-
       setValidKey(await verifyAPIKey(apiKey));
-      setValidKey(true);
     }
     // this only checks for validation once the form has been submitted
     if (isSubmit) getVaildation();
