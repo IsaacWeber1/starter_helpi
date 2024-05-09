@@ -40,7 +40,6 @@ nav {
   padding-top: relative;
   justify-content: space-between;
   position: relative;
-  margin: calc(vh/2);
   margin-top: 100%;
 }
 
