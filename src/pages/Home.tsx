@@ -86,7 +86,6 @@ export const Home = () => {
               Explore Your Path: Ideal for beginners or those uncertain about their career direction, this quiz provides a friendly introduction to the world of career possibilities. Through straightforward questions about your interests and basic educational background, it helps you discover diverse career fields and suggests potential areas you might enjoy exploring further. Perfect for high school students or anyone new to career planning.
             </article>
           </div>
-            
           <div className="quiz-link-select-container">
             <Link className="select-quiz-link" to="/advanced-quiz">
               <p className="select-quiz-link-text">Advanced Quiz</p>
