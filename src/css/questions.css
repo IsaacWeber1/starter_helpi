@@ -1,4 +1,17 @@
 .response-question {
     width: 100%;
+    padding: 0.5em;
 }
 
+.multi-response-question {
+    padding: 0.5em;
+}
+
+.question-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* slider css */

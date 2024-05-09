@@ -54,8 +54,8 @@ export function SliderResponse({
 
     
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+        <div>
+            <div className='question-header'>
                 <h4 ref={questionRef} style={{maxWidth: "60%"}}>{question}</h4>
                 <BsFillInfoCircleFill className="quiz-tooltip"
                     onMouseEnter={() => setTooltip(description)}
@@ -84,6 +84,9 @@ export function SliderResponse({
             <Form.Group>
                 <Form.Label>{localAnswer}</Form.Label>
                 <Form.Range
+                    className="win10-thumb"
+                    min={0}
+                    max={100}
                     value={localAnswer}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => setLocalAnswer(event.target.value)}
                     size={25}

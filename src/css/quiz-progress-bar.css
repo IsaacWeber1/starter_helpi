@@ -1,3 +1,35 @@
-.quiz-progress-bar {
-    width: 100%;
+progress[value] {
+    -webkit-appearance:none;
+    -moz-appearance:none;        
+    appearance: none;
+}
+
+.quiz-progress-bar[value] {
+    --pbbr: 0.75em;
+    width: 100%; 
+    height: 100%;
+    max-height: 2em;
+    border-radius: var(--pbbr);
+    position: relative;
+    background-color: var(--almost-teal);
+}
+
+.quiz-progress-bar[value]::before {
+    content: attr(value) " / " attr(max);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: black;
+}
+
+.quiz-progress-bar[value]::-webkit-progress-bar {
+    border-radius: var(--pbbr);
+    background-color: var(--almost-teal);
+}
+
+.quiz-progress-bar[value]::-webkit-progress-value {
+    border-radius: var(--pbbr);
+    background-color: var(--tericotta-mesa-yellow);
 }

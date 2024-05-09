@@ -1,0 +1,59 @@
+
+.generic-loading-container-o {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    margin: auto;
+    height: 50vh;
+    width: 100%
+}
+
+.stack {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.generic-loading-container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.spin-section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 15px solid transparent;
+    animation: rotate var(--duration) forwards var(--timing) infinite;
+    pointer-events: none;
+}
+
+.g-l-section-ol-1 {
+    border-top-color: lightcoral;
+  --duration: 1s;
+  --timing: linear;
+}
+
+.g-l-section-ol-2 {
+    border-top-color: rgb(52, 59, 116);
+  --duration: 1.5s;
+  --timing: cubic-bezier(0.1, 0.6, 0.2, 0.4);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

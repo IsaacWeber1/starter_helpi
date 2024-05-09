@@ -29,7 +29,6 @@ export function ApiKeyInput(): JSX.Element {
 
   useEffect(() => {
     async function getVaildation() {
-
       setValidKey(await verifyAPIKey(apiKey));
     }
     // this only checks for validation once the form has been submitted
@@ -80,14 +79,18 @@ export const Home = () => {
             <Link className="select-quiz-link" to="/basic-quiz">
               <p className="select-quiz-link-text">Basic Quiz</p>
             </Link>
+            <article>
+              Explore Your Path: Ideal for beginners or those uncertain about their career direction, this quiz provides a friendly introduction to the world of career possibilities. Through straightforward questions about your interests and basic educational background, it helps you discover diverse career fields and suggests potential areas you might enjoy exploring further. Perfect for high school students or anyone new to career planning.
+            </article>
           </div>
-          <article>Explore Your Path: Ideal for beginners or those uncertain about their career direction, this quiz provides a friendly introduction to the world of career possibilities. Through straightforward questions about your interests and basic educational background, it helps you discover diverse career fields and suggests potential areas you might enjoy exploring further. Perfect for high school students or anyone new to career planning.</article>
           <div className="quiz-link-select-container">
             <Link className="select-quiz-link" to="/advanced-quiz">
               <p className="select-quiz-link-text">Advanced Quiz</p>
             </Link>
+            <article>
+              Refine Your Journey: Designed for those who have a clearer vision of their future, this quiz dives deep into specific career pathways and advanced opportunities. By analyzing your detailed educational achievements, experiences, and skills, it offers personalized advice on strategic steps to take your career to the next level. Ideal for college students, recent graduates, or professionals seeking targeted guidance.
+            </article>
           </div>
-        <article>Refine Your Journey: Designed for those who have a clearer vision of their future, this quiz dives deep into specific career pathways and advanced opportunities. By analyzing your detailed educational achievements, experiences, and skills, it offers personalized advice on strategic steps to take your career to the next level. Ideal for college students, recent graduates, or professionals seeking targeted guidance.</article>
         </div>
     </>
   )

@@ -64,8 +64,8 @@ export function McSingleResponse({
 
     
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+        <div>
+            <div className='question-header'>
                 <h4 ref={questionRef} style={{maxWidth: "60%"}}>{question}</h4>
                 <BsFillInfoCircleFill className="quiz-tooltip"
                     onMouseEnter={() => setTooltip(description)}
@@ -94,9 +94,10 @@ export function McSingleResponse({
             <Form>
             <ul style={{ listStyleType: 'none', padding: 0 }}>
                     {options.map((option, idx) => (
-                        <li key={idx}>
+                        <li key={idx}
+                            className='multi-response-question'>
                             <ToggleButton
-                                className="App-quiz"
+                                className="App-quiz response-question"
                                 id={`option-${idx}`}
                                 type="radio"
                                 variant={localAnswer === option ? "selected" : "single-selected"}

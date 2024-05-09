@@ -87,7 +87,9 @@ export function McMultiResponse({
     const DisplayOther = ({thisKey}:{thisKey : string}): JSX.Element => {
         if (!localAnswer.includes(thisKey)) {
             return(
-            <li key="Other">
+            <li 
+                key="Other"
+                className='multi-response-question'>
                 <ToggleButton
                     className="App-quiz response-question"
                     variant={localAnswer.includes(otherOption) ? "selected" : "selected-outlined"}
@@ -105,8 +107,8 @@ export function McMultiResponse({
 
     
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+        <div>
+            <div className='question-header'>
                 <h4 ref={questionRef} style={{maxWidth: "60%"}}>{question}</h4>
                 <BsFillInfoCircleFill className="quiz-tooltip"
                     onMouseEnter={() => setTooltip(description)}
@@ -140,7 +142,6 @@ export function McMultiResponse({
                             <DisplayOther thisKey={choice}/>
                             {localAnswer.includes(otherOption) && (
                                 <FormControl
-                                    style={{ marginTop: '10px' }}
                                     placeholder="Type your custom answer here"
                                     value={customAnswer.substring(otherOption.length + 2)}
                                     onChange={(event) => setCustomAnswer(`${otherOption}: ${event.target.value}`)}
@@ -150,11 +151,11 @@ export function McMultiResponse({
                          )
                         : (
                             <li 
-                            key={choice}>
+                                key={choice}
+                                className='multi-response-question'>
                                 <ToggleButton
                                     className="App-quiz response-question"
                                     variant={localAnswer.includes(choice) ? "selected" : "selected-outlined"}
-                                    key={`${choice}Select`}
                                     type="checkbox"
                                     id={choice}
                                     value={choice}

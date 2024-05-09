@@ -13,6 +13,7 @@ import { QuestionAnswer } from "src/interfaces/PromptQuestionsSetup";
 import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
 import { HiChevronDown, } from "react-icons/hi2";
+import { FinalReport, Career } from "Types/FinalReportTypes";
 
 type DisplayQuizProps = Record<string, Question>;
 
@@ -20,16 +21,6 @@ type QuestionAns = {
     questionId: string,
     answer: string
 }
-
-type Career = {
-    role: string, 
-    description: string,
-    benefits: string[]
-    challenges: string[]
-    links: string[]
-}
-
-type FinalReport = {careers: Career[]};
 
 export function DisplayQuiz(
     { 
@@ -245,8 +236,6 @@ export function DisplayQuiz(
             </>
         );
     };
-    
-    
     
     
     const DisplayResults = () => {
