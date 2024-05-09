@@ -1,13 +1,41 @@
 footer {
-    background-color: var(--british-khaki);
+    position: fixed; 
+    bottom:0%;
+    width:100%; 
+    background-color: var(--dawn-dish-blue);
     display: grid;
     grid-template-columns: 65% 35%;
 }
 
 .github-name-links {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    max-height: 2em;
+    display: flex;
+    justify-content: space-around;
+    
 }
+
+.github-logo-contaier {
+    display: flex;
+    justify-content: center;
+    object-fit: contain;
+  }
+  
+  .github-logo {
+    max-height: 100%;
+  }
+  
+  .github-links {
+    background-color: var(--gift-wrap-purple);
+    text-decoration: inherit;
+    color: var(--off-white);
+    border: 5px solid var(--gift-wrap-purple);
+    border-radius: 5px;
+  }
+  
+  .github-links:hover {
+    background-color: var(--dark-royal-blue);
+  }
+  
 
 .api-key-form {
     display: grid;

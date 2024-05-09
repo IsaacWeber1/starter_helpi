@@ -19,19 +19,12 @@ export default function App(): JSX.Element {
       <div className="App">
         <header className="App-header">
           <nav>
-            <Link to="starter_helpi/">Home</Link>
+            <Link className="nav-text-link" to="starter_helpi/">Home</Link>
+            <Link className="nav-text-link" to="/select-quiz">Select Quiz</Link>
+            <Link className="nav-text-link" to="/results">Results</Link>
           </nav>
-          <nav>
-            <Link to="/select-quiz">Select Quiz</Link>
-          </nav>
-          <nav> 
-            <Link to="/results">Results</Link>
-          </nav>
-            <nav>
-              <Link to="/secret">Secret</Link>
-            </nav>
         </header>
-        <Routes>
+      <Routes>
           <Route path="starter_helpi/*" element={<Home />} />
           <Route path="/select-quiz" element={<SelectQuiz />}/>
           <Route path="/chat-gbt-page" element={<ChatGBTPage />}/>
@@ -46,10 +39,8 @@ export default function App(): JSX.Element {
           element={<AdvancedQuiz/>}
         />
           <Route path="*" element={<div>404 Not Found</div>} />
-        </Routes>
-
-      </div>
-      <footer> 
+      </Routes>
+        <footer className=""> 
           <ApiKeyInput></ApiKeyInput>
           <div className="github-name-links">
             <div className="github-logo-container">
@@ -59,7 +50,9 @@ export default function App(): JSX.Element {
             <a className="github-links" href="https://github.com/DylanMinchhoff">Dylan</a>
             <a className="github-links" href="https://github.com/IsaacWeber1">Issac</a>
           </div>
-      </footer>
+        </footer>
+      </div>
+      
     </Router>
    </div>
   );

@@ -1,21 +1,25 @@
+.quiz-select{
+    column-gap: normal;
+}
 
 .quiz-link-select-container {
-    justify-items: center;
-    align-items: center;
+    background-color: var(--diamons-blue);
 }
 
 .select-quiz-link {
     text-align: center;
-    border-radius: 25px;
-    background-color: var(--dark-royal-blue);
-    /* /min-height: 100px; */
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    background-color: var(--diamons-blue);
+    border: 2px solid var(--diamons-blue);
+    border-radius: 5%;
     font-size: calc(10px + 2vmin);
     color: var(--british-khaki);
+    text-decoration: inherit;
 }
 
 .quiz-select {
     background-color: var(--diamons-blue);
+    display: flex;
+    align-items: center;
+    column-gap: normal;
+    margin: 1rem
 }
