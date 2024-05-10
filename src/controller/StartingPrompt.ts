@@ -6,7 +6,7 @@ export const mapQuestionsToAnswers = (questions: QuestionAnswer[]): string => {
 
 
 export const CreateStartingPrompt = (questionAns : PromptQuestionsSetup): string => {
-    if (questionAns.status !== "followUp") {
+    if (questionAns.status !== "FollowUp") {
         if (questionAns.quiz === "Basic Quiz") {
             return(
                 `You are a career advisor tasked with helping a user identify possible career paths which would be a good fit.\n` +
