@@ -15,6 +15,12 @@ import { Container } from "react-bootstrap";
 import { HiChevronDown, } from "react-icons/hi2";
 import { FinalReport, Career } from "Types/FinalReportTypes";
 
+export type RenderReportProps = {
+    finalReport: FinalReport;
+    currRoles: string[];
+    updateRoles: (role: string) => void;
+};
+
 type DisplayQuizProps = Record<string, Question>;
 
 type QuestionAns = {
@@ -22,30 +28,29 @@ type QuestionAns = {
     answer: string
 }
 
+export type ParentProps = {
+    title: string,
+    quiz: DisplayQuizProps,
+    questionsAnswered: number,
+    totalQuestions: number,
+    currTotQuestions: number,
+    setQuestionsAnswered: (questionsAnswered: number) => void,
+    setCurrTotQuestions: (currTotQuestions: number) => void
+}
+
+type CurrentState = "Experience" | "FollowUp" | "FinalReport";
+
+
 export function DisplayQuiz(
     { 
-        quiz,
-        title,
-        questionsAnswerd,
-        initialMax,
-        totalQuestions,
-        currTotQuestions,
-        setQuestionsAnswered,
-        setCurrTotQuestions
+        parentProps
     } 
     : 
     {
-        title: string,
-        quiz : DisplayQuizProps,
-        questionsAnswerd : number,
-        initialMax: number,
-        totalQuestions: number,
-        currTotQuestions: number,
-        setQuestionsAnswered : (questionsAnswerd: number) => void 
-        setCurrTotQuestions: (currTotQuestions: number) => void
+        parentProps: ParentProps
     }
     ): JSX.Element {
-    const [curQuiz, setCurQuiz] = useState<DisplayQuizProps>(quiz);
+    const [curQuiz, setCurQuiz] = useState<DisplayQuizProps>(parentProps.quiz);
     const [currentQuestionId, setCurrentQuestionId] = useState<string>("question1"); // Starting question ID
     const [isQuizComplete, setIsQuizComplete] = useState<boolean>(false); // Used to determine when curQuiz is complete
     const [answers, setAnswers] = useState<QuestionAns[]>([]); // Array of all question answers
@@ -53,8 +58,7 @@ export function DisplayQuiz(
     const [gbtConversation, setGBTConversation] = useState<OpenAI.ChatCompletion.Choice[]>();
     const [isLoading, setIsLoading] = useState(false);
     const [type, setType ] = useState("");
-    const [followUp, setFollowUp] = useState<boolean>(false);
-    // const [nextPrompt, setNextPrompt] = useState<string>("");
+    const [stage, setStage] = useState<CurrentState>("Experience");
 
     async function connectToGBT(startingPrompt: string, prompt: string)  {
         const response = await callGBT({startingPrompt: startingPrompt, userPrompt: prompt});
@@ -81,22 +85,31 @@ export function DisplayQuiz(
         addToQuiz(JSON.parse(res));
     }
 
+    const determineNewQuestionsAmount = (): number => {
+        if (stage === "Experience") {
+            setStage("FollowUp");
+            return 4;
+        } else if (stage === "FollowUp") {
+            setStage("FinalReport");
+            return 10;
+        }
+        return 0;
+    }
+
     // gets the next questions
     async function createNextQuestion() {
         //setIsLoading(true);
         setType("generatingQuestions")
         // if basic curQuiz only one call is nessesary
         const questionAns: QuestionAnswer[] = answers.map((q: QuestionAns) => ({question: curQuiz[q.questionId], answer: q.answer}));
-        const newQuestions = currTotQuestions < initialMax ? initialMax-currTotQuestions : totalQuestions - currTotQuestions
-        if ((currTotQuestions + newQuestions) >= initialMax) setFollowUp(true);
-        console.log(`new total: ${currTotQuestions + newQuestions}`);
-        followUp ? console.log("follow up questions") : console.log("initial questions")
-        setCurrTotQuestions(currTotQuestions + newQuestions);
+        const newQuestions = determineNewQuestionsAmount();
+        console.log(`new total: ${parentProps.currTotQuestions + newQuestions}`);
+        parentProps.setCurrTotQuestions(parentProps.currTotQuestions + newQuestions);
         const response = await connectToGBT(CreateStartingPrompt({
                 questionsAns: questionAns,
-                status: followUp ? "followUp" : "",
-                quiz: title
-            }), CreateBasicStartingPrompt(newQuestions, questionsAnswerd));
+                status: stage,
+                quiz: parentProps.title
+            }), CreateBasicStartingPrompt(newQuestions, parentProps.questionsAnswered));
         console.log("GBT response", response);
         parseChatHistory(response);
         //adding new messages to chat history
@@ -112,11 +125,12 @@ export function DisplayQuiz(
           if (forewards) { // process for getting the next question
             const newId = `question${parseInt(currentQuestionId.substring(8)) + 1}`; // returns next numerical question
             if (newId in curQuiz) return (newId);
+            if (stage === "FinalReport") return "";
             //quiz is done
             console.log("Q Id:", newId);
-            if(parseInt(currentQuestionId.substring(8)) >= totalQuestions) return "";
+            if(parseInt(currentQuestionId.substring(8)) >= parentProps.totalQuestions) return "";
             // curQuiz is not over but needs more questions
-            else if(currTotQuestions < totalQuestions) {
+            else if(parentProps.currTotQuestions < parentProps.totalQuestions) {
                 await createNextQuestion();
                 // assuming nothing breaks and the next question is actually loaded
                 return `question${parseInt(currentQuestionId.substring(8)) + 1}`;
@@ -146,16 +160,16 @@ export function DisplayQuiz(
         if (forewards) { // if going to next question
             const nextQuestionId = await determineNextQuestionId(currentQuestionId, curQuiz, true);
             console.log("next question id", nextQuestionId);
-            if (questionsAnswerd === lastQuestionArray) { // if questions answered is equal to the latest array, appends it with newest answer
+            if (parentProps.questionsAnswered === lastQuestionArray) { // if questions answered is equal to the latest array, appends it with newest answer
                 setAnswers([...answers, {questionId: currentQuestionId, answer: answer}])
                 setQuestionArray(lastQuestionArray + 1);
             } 
             else { // else, splices array and puts in the new answer
                 const newAnswers = [...answers]
-                newAnswers.splice(questionsAnswerd, 1, {questionId: currentQuestionId, answer: answer})
+                newAnswers.splice(parentProps.questionsAnswered, 1, {questionId: currentQuestionId, answer: answer})
                 setAnswers(newAnswers);
             }
-            setQuestionsAnswered(questionsAnswerd + 1); // increments questions answered
+            parentProps.setQuestionsAnswered(parentProps.questionsAnswered + 1); // increments questions answered
 
             if (nextQuestionId === "") {
                 setIsQuizComplete(true); // End of the curQuiz
@@ -165,7 +179,7 @@ export function DisplayQuiz(
             }
         } 
         else { // backwards
-            setQuestionsAnswered(questionsAnswerd - 1);
+            parentProps.setQuestionsAnswered(parentProps.questionsAnswered - 1);
             const nextQuestionId = determineNextQuestionId(currentQuestionId, curQuiz, false);
             setCurrentQuestionId(await nextQuestionId);
         }
@@ -173,11 +187,7 @@ export function DisplayQuiz(
     }
     // if(Object.keys(quiz).length === 0) createQuiz();
 
-    type RenderReportProps = {
-        finalReport: FinalReport;
-        currRoles: string[];
-        updateRoles: (role: string) => void;
-    };
+    
     
     const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, updateRoles }) => {
         return (

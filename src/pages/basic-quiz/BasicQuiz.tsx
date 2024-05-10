@@ -1,18 +1,27 @@
 import { Suspense, useState } from "react"
-// import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
 import { DisplayQuiz } from "src/components/DisplayQuiz"
 import { Loading } from "src/components/Loading"
 import { ProgressBar } from "src/components/ProgressBar"
 import { basicQuiz } from "src/assets/quizzes/BasicQuiz"
-
-
+import { ParentProps } from "src/components/DisplayQuiz"
 
 export const BasicQuiz = () => {
-    const quiz = basicQuiz;
+    const numStartingQuestions = Object.keys(basicQuiz).length;
+
     const [questionsAnswered, setQuestionsAnswered] = useState<number>(0);
-    const [currTotQuestions, setCurrTotQuestions] = useState<number>(Object.keys(quiz).length);
-    const totalQuestions = 20;
-    const initialMax = 7
+    const [currTotQuestions, setCurrTotQuestions] = useState<number>(numStartingQuestions);
+    const totalQuestions = 14 + numStartingQuestions;
+
+    const currentProps: ParentProps = {
+        quiz: basicQuiz,
+        title: "Basic Quiz",
+        questionsAnswered: questionsAnswered,
+        totalQuestions: totalQuestions,
+        currTotQuestions: currTotQuestions,
+        setQuestionsAnswered: setQuestionsAnswered,
+        setCurrTotQuestions: setCurrTotQuestions
+    }
+
     return(
     <div className="App-quiz">
         <div className="quiz-container-o">
@@ -22,14 +31,7 @@ export const BasicQuiz = () => {
             />
             <Suspense fallback={<Loading type="Basic Quiz"/>}>
                 <DisplayQuiz 
-                    quiz={quiz}
-                    title="Basic Quiz"
-                    initialMax={initialMax}
-                    totalQuestions={totalQuestions}
-                    questionsAnswerd={questionsAnswered}
-                    currTotQuestions={currTotQuestions}
-                    setQuestionsAnswered={setQuestionsAnswered}
-                    setCurrTotQuestions={setCurrTotQuestions}
+                    parentProps={currentProps}
                 />
             </Suspense>
         </div>
