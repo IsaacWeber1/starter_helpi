@@ -8,7 +8,7 @@ import { ParentProps } from "src/components/DisplayQuiz"
 export const BasicQuiz = () => {
     const numStartingQuestions = Object.keys(basicQuiz).length;
 
-    const [questionsAnswered, setQuestionsAnswered] = useState<number>(0);
+    const [questionsAnswered, setQuestionsAnswered] = useState<number>(1);
     const [currTotQuestions, setCurrTotQuestions] = useState<number>(numStartingQuestions);
     const totalQuestions = 14 + numStartingQuestions;
 
@@ -23,17 +23,19 @@ export const BasicQuiz = () => {
     }
 
     return(
-    <div className="App-quiz">
-        <div className="quiz-container-o">
-            <ProgressBar
-                value={questionsAnswered}
-                max={totalQuestions}
-            />
-            <Suspense fallback={<Loading type="Basic Quiz"/>}>
-                <DisplayQuiz 
-                    parentProps={currentProps}
-                />
-            </Suspense>
+        <div className="App-quiz">
+            <div className="quiz-container-o">
+                {(questionsAnswered <= totalQuestions) &&
+                <ProgressBar
+                    value={questionsAnswered}
+                    max={totalQuestions}
+                />}
+                <Suspense fallback={<Loading type="Basic Quiz"/>}>
+                    <DisplayQuiz 
+                        parentProps={currentProps}
+                    />
+                </Suspense>
+            </div>
         </div>
-    </div>)
+    )
 }

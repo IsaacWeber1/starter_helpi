@@ -109,7 +109,7 @@ export function DisplayQuiz(
                 questionsAns: questionAns,
                 status: stage,
                 quiz: parentProps.title
-            }), CreateBasicStartingPrompt(newQuestions, parentProps.questionsAnswered));
+            }), CreateBasicStartingPrompt(newQuestions, parseInt(currentQuestionId.substring(8))));
         console.log("GBT response", response);
         parseChatHistory(response);
         //adding new messages to chat history
@@ -193,6 +193,7 @@ export function DisplayQuiz(
         return (
             <>
                 <h2>Final Results:</h2>
+                <br></br>
                 {finalReport.careers.map((career: Career) => (
                     <div 
                         className="App-career-container"
@@ -350,7 +351,6 @@ export function DisplayQuiz(
     if (isQuizComplete) {
         return (
         <>
-            <h2>Your results</h2>
             <DisplayResults/>
         </>)
     }

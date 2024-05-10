@@ -1,12 +1,12 @@
 // import { exampleReport } from "src/assets/test_data/expampleReport"
 import { Container } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
-import { RenderReportProps } from '@src/components/DisplayQuiz' 
-import { useState } from 'react'
+//import { RenderReportProps } from '@src/components/DisplayQuiz' 
+//import { useState } from 'react'
 
 export const Results = () => {
-  const [results, setResults] = useState<RenderReportProps[]>();
-  const [currResult, setCurrResult] = useState<RenderReportProps>(localStorage.getItem("RESULTS"));
+  //const [results, setResults] = useState<RenderReportProps[]>();
+  //const [currResult, setCurrResult] = useState<RenderReportProps>(localStorage.getItem("RESULTS"));
   if (localStorage.getItem("RESULTS") === null)
   return(
     <>
