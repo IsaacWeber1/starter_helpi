@@ -54,7 +54,7 @@ export function DisplayQuiz(
     const [currentQuestionId, setCurrentQuestionId] = useState<string>("question1"); // Starting question ID
     const [isQuizComplete, setIsQuizComplete] = useState<boolean>(false); // Used to determine when curQuiz is complete
     const [answers, setAnswers] = useState<QuestionAns[]>([]); // Array of all question answers
-    const [lastQuestionArray, setQuestionArray] = useState<number>(0) // Keeps track of lastmost question answered to determine when to append answers
+    //const [lastQuestionArray, setQuestionArray] = useState<number>(0) // Keeps track of lastmost question answered to determine when to append answers
     const [gbtConversation, setGBTConversation] = useState<OpenAI.ChatCompletion.Choice[]>();
     const [isLoading, setIsLoading] = useState(false);
     const [type, setType ] = useState("");
@@ -156,35 +156,70 @@ export function DisplayQuiz(
     const handleAnswerSubmit = async (answer: string, forewards: boolean) => {
         setIsLoading(true);
         setType("nextQuestion")
-        
-        if (forewards) { // if going to next question
-            const nextQuestionId = await determineNextQuestionId(currentQuestionId, curQuiz, true);
-            console.log("next question id", nextQuestionId);
-            if (parentProps.questionsAnswered === lastQuestionArray) { // if questions answered is equal to the latest array, appends it with newest answer
-                setAnswers([...answers, {questionId: currentQuestionId, answer: answer}])
-                setQuestionArray(lastQuestionArray + 1);
-            } 
-            else { // else, splices array and puts in the new answer
-                const newAnswers = [...answers]
-                newAnswers.splice(parentProps.questionsAnswered, 1, {questionId: currentQuestionId, answer: answer})
-                setAnswers(newAnswers);
-            }
-            parentProps.setQuestionsAnswered(parentProps.questionsAnswered + 1); // increments questions answered
 
+        const answerIndex = answers.findIndex(a => a.questionId === currentQuestionId);
+        if (answerIndex === -1) {
+            setAnswers([...answers, { questionId: currentQuestionId, answer: answer }]);
+        } else {
+            const updatedAnswers = [...answers];
+            updatedAnswers[answerIndex] = { questionId: currentQuestionId, answer: answer };
+            setAnswers(updatedAnswers);
+        }
+
+
+        if (forewards) { // if going to the next question
+            const nextQuestionId = await determineNextQuestionId(currentQuestionId, curQuiz, forewards);
+            console.log("next question id", nextQuestionId);
+    
+            // Update answers array: either append or update the existing entry
+    
+            parentProps.setQuestionsAnswered(parentProps.questionsAnswered + 1); // increments questions answered
             if (nextQuestionId === "") {
                 setIsQuizComplete(true); // End of the curQuiz
-            }
-            else {
+            } else {
                 setCurrentQuestionId(nextQuestionId); // Move to the next question
             }
         } 
         else { // backwards
+            const previousQuestionId = await determineNextQuestionId(currentQuestionId, curQuiz, forewards);
+            setCurrentQuestionId(previousQuestionId);
             parentProps.setQuestionsAnswered(parentProps.questionsAnswered - 1);
-            const nextQuestionId = determineNextQuestionId(currentQuestionId, curQuiz, false);
-            setCurrentQuestionId(await nextQuestionId);
         }
         setIsLoading(false);
     }
+    
+
+        
+    //     if (forewards) { // if going to next question
+    //         const answerIndex = answers.findIndex(a => a.questionId === currentQuestionId);
+    //         const nextQuestionId = await determineNextQuestionId(currentQuestionId, curQuiz, true);
+    //         console.log("next question id", nextQuestionId);
+    //         if (parentProps.questionsAnswered === lastQuestionArray) { // if questions answered is equal to the latest array, appends it with newest answer
+    //             setAnswers([...answers, {questionId: currentQuestionId, answer: answer}])
+    //             setQuestionArray(lastQuestionArray + 1);
+    //         } 
+    //         else { // else, splices array and puts in the new answer
+    //             const updatedAnswers = [...answers];
+    //             updatedAnswers[answerIndex] = { questionId: currentQuestionId, answer: answer };
+    //             setAnswers(updatedAnswers);
+
+    //         }
+    //         parentProps.setQuestionsAnswered(parentProps.questionsAnswered + 1); // increments questions answered
+
+    //         if (nextQuestionId === "") {
+    //             setIsQuizComplete(true); // End of the curQuiz
+    //         }
+    //         else {
+    //             setCurrentQuestionId(nextQuestionId); // Move to the next question
+    //         }
+    //     } 
+    //     else { // backwards
+    //         parentProps.setQuestionsAnswered(parentProps.questionsAnswered - 1);
+    //         const nextQuestionId = determineNextQuestionId(currentQuestionId, curQuiz, false);
+    //         setCurrentQuestionId(await nextQuestionId);
+    //     }
+    //     setIsLoading(false);
+    // }
     // if(Object.keys(quiz).length === 0) createQuiz();
 
     
@@ -230,7 +265,7 @@ export function DisplayQuiz(
                                 <br></br>
                                 <li>
                                     <h5>Links:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
+                                    <ul style={{listStyleType: 'disk', color: "darkblue"}}>
                                         {career.links.map((link, index) => (
                                             <>
                                                 <a href={link} key={index}>{link}</a>
