@@ -18,7 +18,8 @@ export const exampleReport: FinalReport = {careers: [
         "links": [
             "https://www.bls.gov/ooh/math/data-scientists.htm",
             "https://datascience.udacity.com/"
-        ]
+        ],
+        picture: undefined
     },
     {
         "role": "Software Engineer",
@@ -36,7 +37,8 @@ export const exampleReport: FinalReport = {careers: [
         "links": [
             "https://stackoverflow.com/",
             "https://github.com/"
-        ]
+        ],
+        picture: undefined
     },
     {
         "role": "UX Designer",
@@ -54,7 +56,8 @@ export const exampleReport: FinalReport = {careers: [
         "links": [
             "https://www.behance.net/",
             "https://www.adobe.com/products/xd.html"
-        ]
+        ],
+        picture: undefined
     }
 ]}
 

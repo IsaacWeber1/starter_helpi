@@ -12,8 +12,8 @@ import { CreateBasicStartingPrompt, CreateStartingPrompt, createFinalResponse } 
 import { QuestionAnswer } from "src/interfaces/PromptQuestionsSetup";
 import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
-import { HiChevronDown, } from "react-icons/hi2";
-import { FinalReport, Career } from "Types/FinalReportTypes";
+import { FinalReport } from "Types/FinalReportTypes";
+import { RenderReport } from "./RenderReport";
 
 export type RenderReportProps = {
     finalReport: FinalReport;
@@ -186,67 +186,6 @@ export function DisplayQuiz(
         setIsLoading(false);
     }
     // if(Object.keys(quiz).length === 0) createQuiz();
-
-    
-    
-    const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, updateRoles }) => {
-        return (
-            <>
-                <h2>Final Results:</h2>
-                <br></br>
-                {finalReport.careers.map((career: Career) => (
-                    <div 
-                        className="App-career-container"
-                        key={career.role}
-                    >
-                        <h3>{career.role}</h3>
-                        <HiChevronDown 
-                            onClick={() => updateRoles(career.role)}
-                            size={20}
-                            style={{position: "relative"}}
-                        ><strong>{career.role}</strong></HiChevronDown>
-                        <div style={{textAlign: 'left'}}>
-                        {currRoles.includes(career.role) && (
-                            <ol style={{listStyleType: 'none'}}>
-                                <li><strong>Role:</strong> {career.description}</li>
-                                <br></br>
-                                <li>
-                                    <h5>Benefits:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.benefits.map((benefit, index) => (
-                                            <p key={index} style={{listStyleType: 'disk'}}>{benefit}</p>
-                                        ))}
-                                    </ul>
-                                </li>
-                                <br></br>
-                                <li>
-                                    <h5>Challenges:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.challenges.map((challenge, index) => (
-                                            <p key={index}>{challenge}</p>
-                                        ))}
-                                    </ul>
-                                </li>
-                                <br></br>
-                                <li>
-                                    <h5>Links:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.links.map((link, index) => (
-                                            <>
-                                                <a href={link} key={index}>{link}</a>
-                                                <br></br>
-                                            </>
-                                        ))}
-                                    </ul>
-                                </li>
-                            </ol>
-                        )}
-                        </div>
-                    </div>
-                ))}
-            </>
-        );
-    };
     
     
     const DisplayResults = () => {
@@ -288,58 +227,6 @@ export function DisplayQuiz(
         //maybe try using HiChevronDoubleUp when dropdown is down
 
         return <RenderReport finalReport={finalResponse} currRoles={currRoles} updateRoles={updateRoles} />;
-    
-        // return (
-        //     <>
-        //         <h2>Final Results:</h2>
-        //         {finalResponse.careers.map((career: Career) => (
-        //             <div 
-        //                 className="App-career-container"
-        //                 key={career.role}
-        //             > {/* Assuming role is unique */}
-        //                 <h3>{career.role}</h3>
-        //                 <HiChevronDown 
-        //                     onClick={() => updateRoles(career.role)}
-        //                     size={20}
-        //                     style={{position: "relative"}}
-        //                 ><strong>{career.role}</strong></HiChevronDown>
-        //                 <div style={{textAlign: 'left'}}>
-        //                 {currRoles.includes(career.role) && (
-        //                     <ul
-        //                         style={{listStyleType:'none'}}
-        //                     >
-        //                         <li><strong>Role:</strong> {career.description}</li>
-        //                         <br></br>
-        //                         <li>
-        //                             <h3>Benefits:</h3>
-        //                             <ul
-        //                                 style={{listStyleType: 'disk'}}
-        //                             >
-        //                                 {career.benefits.map((benefit, index) => (
-        //                                     <li key={index}>{benefit}</li> // Not ideal if benefits can change
-        //                                 ))}
-        //                             </ul>
-        //                         </li>
-        //                         <br></br>
-        //                         <li>
-        //                             {career.challenges.map((challenge, index) => (
-        //                                 <li key={index}>{challenge}</li> // Not ideal if challenges can change
-        //                             ))}
-        //                         </li>
-        //                         <br></br>
-        //                         <li>
-        //                             {career.links.map((link, index) => (
-        //                                 <a href={link} key={index}>{link}</a> // Not ideal if links can change
-        //                             ))}
-        //                         </li>
-        //                     </ul>
-        //                 )}
-        //                 </div>
-        //         </div>
-        //         ))}
-
-        //     </>
-        // );
     }
     
 
