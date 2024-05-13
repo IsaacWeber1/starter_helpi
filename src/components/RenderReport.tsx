@@ -1,10 +1,8 @@
 import { HiChevronDown } from "react-icons/hi2";
-import { RenderReportProps } from "./DisplayQuiz";
 import { Career, FinalReport } from "Types/FinalReportTypes";
 import { CreateImage } from "src/controller/CreateImage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Loading } from "./Loading";
-import { Dropdown } from "react-bootstrap";
 
 const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => {
     console.log("before careers mapped", finalReport);
