@@ -30,11 +30,64 @@ const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => 
     };
 }
 
+const RenderDropdownReport = ({career} : {career : Career}) => {
+    const [displayDown, setDisplayDown] = useState<boolean>(false);
+
+    return(
+        <div 
+            className="App-career-container"
+        >
+            <h3>{career.role}</h3>
+            <HiChevronDown 
+                onClick={() => setDisplayDown(!displayDown)}
+                size={20}
+                style={{position: "relative"}}
+            ><strong>{career.role}</strong></HiChevronDown>
+            <div className={(displayDown ? "results-display-down" : "results-no-display-down")}>
+                <ol>
+                    <li><strong>Role:</strong> {career.description}</li>
+                    <br></br>
+                    {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} alt={career.role}></img>}
+                    <li>
+                        <h5>Benefits:</h5>
+                        <ul style={{listStyleType: 'disk'}}>
+                            {career.benefits.map((benefit, index) => (
+                                <p key={index} style={{listStyleType: 'disk'}}>{benefit}</p>
+                            ))}
+                        </ul>
+                    </li>
+                    <br></br>
+                    <li>
+                        <h5>Challenges:</h5>
+                        <ul style={{listStyleType: 'disk'}}>
+                            {career.challenges.map((challenge, index) => (
+                                <p key={index}>{challenge}</p>
+                            ))}
+                        </ul>
+                    </li>
+                    <br></br>
+                    <li>
+                        <h5>Links:</h5>
+                        <ul style={{listStyleType: 'disk'}}>
+                            {career.links.map((link, index) => (
+                                <>
+                                    <a href={link} key={index}>{link}</a>
+                                    <br></br>
+                                </>
+                            ))}
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    )
+}
+
 export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
 
     const [report, setReport] = useState<FinalReport>(finalReport);
     const [imgsLoaded, setImgsLoaded] = useState<boolean>(finalReport.imgsLoaded);
-    console.log("on-reload", finalReport, "imgs-loaded ->", imgsLoaded);
+    console.log("on-reload ->", report, "imgs-loaded ->", imgsLoaded);
 
     const getImgs = async () => {
         const res = await MapGBTCareers(report)
@@ -46,59 +99,12 @@ export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
     if(!imgsLoaded) getImgs();
 
 
-    const [displayDown, setDisplayDown] = useState<boolean>(false);
+    
     return (
         <>
-            <Dropdown>
-                {finalReport.careers.map((career: Career) => (
-                    <div 
-                        className="App-career-container"
-                    >
-                        <h3>{career.role}</h3>
-            <HiChevronDown 
-                onClick={() => setDisplayDown(!displayDown)}
-                size={20}
-                style={{position: "relative"}}
-            ><strong>{career.role}</strong></HiChevronDown>
-                        <div className={(displayDown ? "results-display-down" : "results-no-display-down")}>
-                            <ol>
-                                <li><strong>Role:</strong> {career.description}</li>
-                                <br></br>
-                                {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} alt={career.role}></img>}
-                                <li>
-                                    <h5>Benefits:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.benefits.map((benefit, index) => (
-                                            <p key={index} style={{listStyleType: 'disk'}}>{benefit}</p>
-                                        ))}
-                                    </ul>
-                                </li>
-                                <br></br>
-                                <li>
-                                    <h5>Challenges:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.challenges.map((challenge, index) => (
-                                            <p key={index}>{challenge}</p>
-                                        ))}
-                                    </ul>
-                                </li>
-                                <br></br>
-                                <li>
-                                    <h5>Links:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.links.map((link, index) => (
-                                            <>
-                                                <a href={link} key={index}>{link}</a>
-                                                <br></br>
-                                            </>
-                                        ))}
-                                    </ul>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                ))}
-                </Dropdown>
+            {report.careers.map((career: Career) => (
+                <RenderDropdownReport career={career}/>
+            ))}
             <br></br>
         </>
     );
