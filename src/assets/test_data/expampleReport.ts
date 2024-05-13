@@ -64,6 +64,6 @@ export const exampleReport: FinalReport = {
     }
 ]}
 
-if(localStorage.getItem("RESULTS") === null) {
+export function setExampleReportToStorage() {
     localStorage.setItem("RESULTS", JSON.stringify([exampleReport]));
 }

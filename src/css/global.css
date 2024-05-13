@@ -4,6 +4,7 @@
 @import url(./quiz-progress-bar.css);
 @import url(./loading.css);
 @import url(./select-quiz.css);
+@import url(./render-report.css);
 
 :root {
   --buttonColor1 : rgb(118, 165, 219);
@@ -38,7 +39,7 @@ body {
   background-color: var(--off-white);
 }
 
-ul {
+ul ol li {
   list-style-type: none;
   padding-left: 0;
 }

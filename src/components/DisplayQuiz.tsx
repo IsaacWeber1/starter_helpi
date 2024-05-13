@@ -220,7 +220,7 @@ export function DisplayQuiz(
         }
         //maybe try using HiChevronDoubleUp when dropdown is down
 
-        return <RenderReport finalReport={finalResponse} currRoles={currRoles} setCurrRoles={setCurrRoles} />;
+        return <RenderReport finalReport={finalResponse} />;
     }
     
 
