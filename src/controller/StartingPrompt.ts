@@ -236,6 +236,7 @@ export const createFinalResponse = (questionAns: QuestionAnswer[]) => {
                         "List potential benefits of this career, ideally connecting them to the user's expressed interests or goals.",
                         "Additional benefit related to the user's background."
                     ],
+                    "picture": "you will leave this feild undefined"
                     "challenges": [
                         "Describe possible challenges associated with this career.",
                         "Relate these challenges to the user's past experiences or concerns."

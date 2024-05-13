@@ -1,15 +1,17 @@
-import { Image } from "openai/resources"
 
 export type Career = {
     role: string, 
     description: string,
-    picture: Image | undefined | null,
+    picture: string | undefined,
     benefits: string[]
     challenges: string[]
     links: string[]
 }
 
-export type FinalReport = {careers: Career[]};
+export type FinalReport = {
+    imgsLoaded: boolean,
+    careers: Career[]
+};
 
 export type QuizSummeries = {
     quizzes: FinalReport[]

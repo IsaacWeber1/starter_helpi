@@ -1,7 +1,9 @@
 import { FinalReport } from "Types/FinalReportTypes";
 
 
-export const exampleReport: FinalReport = {careers: [
+export const exampleReport: FinalReport = {
+    imgsLoaded: false,
+    careers: [
     {
         "role": "Data Scientist",
         "description": "Responsible for analyzing large sets of structured and unstructured data to derive actionable insights and solutions in strategic areas of business.",

@@ -1,9 +1,29 @@
 import { HiChevronDown } from "react-icons/hi2";
 import { RenderReportProps } from "./DisplayQuiz";
-import { Career } from "Types/FinalReportTypes";
+import { Career, FinalReport } from "Types/FinalReportTypes";
+import { CreateImage } from "src/controller/CreateImage";
+import { useEffect, useState } from "react";
 
+const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => {
+    const report: Career[] = finalReport.careers.map(async (c: Career) => ({...c, picture : await CreateImage(c.role)}));
+    console.log(report);
+    return {
+        imgsLoaded: true,
+        careers: report
+    };
+}
 
 export const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, updateRoles }) => {
+    const [report, setReport] = useState<FinalReport>(finalReport);
+    MapGBTCareers(finalReport);
+
+    useEffect(() => {
+        const LoadImgs = async() => {
+            setReport(MapGBTCareers(report));
+        }
+        if(!report.imgsLoaded) LoadImgs();
+    },
+    [report])
     return (
         <>
             <h2>Final Results:</h2>

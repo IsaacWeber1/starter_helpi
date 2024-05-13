@@ -12,7 +12,7 @@ import { CreateBasicStartingPrompt, CreateStartingPrompt, createFinalResponse } 
 import { QuestionAnswer } from "src/interfaces/PromptQuestionsSetup";
 import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
-import { FinalReport } from "Types/FinalReportTypes";
+import { Career, FinalReport } from "Types/FinalReportTypes";
 import { RenderReport } from "./RenderReport";
 
 export type RenderReportProps = {
@@ -210,13 +210,14 @@ export function DisplayQuiz(
 
         const finalAns = response.choices[response.choices.length-1].message.content;
         if(finalAns == null) return<>Error Occured</>
-        const finalResponse:FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
+        const careers: Career[] = JSON.parse(finalAns.replace("carears", "careers"));
+        // creating final report object
+        const finalResponse:FinalReport = {
+            imgsLoaded: false,
+            careers: [...careers]
+        }
 
         function updateRoles (newRole: string) {
-            // const newRoles: string[] = currRoles.includes(newRole) 
-            //     ? [...currRoles].filter((currRole: string) => (currRole !== newRole))
-            //     : [...currRoles, newRole];
-            //     setCurrRoles(newRoles);
             setCurrRoles(prevRoles => 
                 prevRoles.includes(newRole)
                 ? prevRoles.filter(role => role !== newRole)
