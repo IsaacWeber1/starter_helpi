@@ -12,8 +12,9 @@ import { CreateBasicStartingPrompt, CreateStartingPrompt, createFinalResponse } 
 import { QuestionAnswer } from "src/interfaces/PromptQuestionsSetup";
 import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
-import { Career, FinalReport } from "Types/FinalReportTypes";
+import { FinalReport } from "Types/FinalReportTypes";
 import { RenderReport } from "./RenderReport";
+import { AddToStorageResponses } from "src/controller/StorageReportHnadler";
 
 export type RenderReportProps = {
     finalReport: FinalReport;
@@ -192,7 +193,6 @@ export function DisplayQuiz(
         const questionAns: QuestionAnswer[] = answers.map((q: QuestionAns) => ({question: curQuiz[q.questionId], answer: q.answer}));
         const [response, setResponse] = useState<OpenAI.ChatCompletion>();
         const [loaded, setLoaded] = useState(false);
-        const [currRoles, setCurrRoles] = useState<string[]>([]); 
 
         useEffect(() => {
             async function getFinalResponse() {
@@ -211,15 +211,16 @@ export function DisplayQuiz(
         const finalAns = response.choices[response.choices.length-1].message.content;
         if(finalAns == null) return<>Error Occured</>
         const finalRep: FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
-        console.log(finalRep);
-        // creating final report object
-        const finalResponse:FinalReport = {
+        const localReports = localStorage.getItem("RESULTS");
+        const numberReports = localReports ? JSON.parse(localReports).length : 0;
+        // creating final report object, id is one greater than the number held in local storage
+        const finalResponse: FinalReport = {
+            reportId: numberReports+1,
             reportName: finalRep.reportName,
             imgsLoaded: false,
             careers: [...finalRep.careers]
         }
-        //maybe try using HiChevronDoubleUp when dropdown is down
-
+        AddToStorageResponses(finalResponse);
         return <RenderReport finalReport={finalResponse} />;
     }
     

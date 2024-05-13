@@ -3,6 +3,7 @@ import { Career, FinalReport } from "Types/FinalReportTypes";
 import { CreateImage } from "src/controller/CreateImage";
 import { useState } from "react";
 import { Loading } from "./Loading";
+import { ModifyStorageResponse } from "src/controller/StorageReportHnadler";
 
 const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => {
     console.log("before careers mapped", finalReport);
@@ -15,6 +16,7 @@ const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => 
         )));
     asyncReport.catch((error) => {
         return {
+            reportId: finalReport.reportId,
             reportName: finalReport.reportName,
             imgsLoaded: true,
             careers: finalReport.careers
@@ -22,6 +24,7 @@ const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => 
     })
     const res = await asyncReport;
     return {
+        reportId: finalReport.reportId,
         reportName: finalReport.reportName,
         imgsLoaded: true,
         careers: res
@@ -91,6 +94,7 @@ export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
         const res = await MapGBTCareers(report)
         console.log("imgs response", res)
         setReport(res);
+        ModifyStorageResponse(res.reportId, res);
         setImgsLoaded(true);
     }
 

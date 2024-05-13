@@ -9,6 +9,7 @@ export type Career = {
 }
 
 export type FinalReport = {
+    reportId: number,
     reportName: string,
     imgsLoaded: boolean,
     careers: Career[]
