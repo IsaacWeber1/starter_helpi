@@ -9,6 +9,7 @@ export type Career = {
 }
 
 export type FinalReport = {
+    reportName: string,
     imgsLoaded: boolean,
     careers: Career[]
 };

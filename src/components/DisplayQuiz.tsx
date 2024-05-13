@@ -1,5 +1,5 @@
 // Import necessary hooks and components
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Question, QuestionComponentProps } from "../interfaces/QuestionTypes";
 import { McSingleResponse } from "./McSingleResponse";
 import { McMultiResponse } from "./McMultiResponse";
@@ -18,7 +18,7 @@ import { RenderReport } from "./RenderReport";
 export type RenderReportProps = {
     finalReport: FinalReport;
     currRoles: string[];
-    updateRoles: (role: string) => void;
+    setCurrRoles: Dispatch<SetStateAction<string[]>>;
 };
 
 type DisplayQuizProps = Record<string, Question>;
@@ -210,24 +210,17 @@ export function DisplayQuiz(
 
         const finalAns = response.choices[response.choices.length-1].message.content;
         if(finalAns == null) return<>Error Occured</>
-        const careers: Career[] = JSON.parse(finalAns.replace("carears", "careers"));
+        const finalRep: FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
+        console.log(finalRep);
         // creating final report object
         const finalResponse:FinalReport = {
+            reportName: finalRep.reportName,
             imgsLoaded: false,
-            careers: [...careers]
-        }
-
-        function updateRoles (newRole: string) {
-            setCurrRoles(prevRoles => 
-                prevRoles.includes(newRole)
-                ? prevRoles.filter(role => role !== newRole)
-                : [...prevRoles, newRole]
-            );
-    
+            careers: [...finalRep.careers]
         }
         //maybe try using HiChevronDoubleUp when dropdown is down
 
-        return <RenderReport finalReport={finalResponse} currRoles={currRoles} updateRoles={updateRoles} />;
+        return <RenderReport finalReport={finalResponse} currRoles={currRoles} setCurrRoles={setCurrRoles} />;
     }
     
 

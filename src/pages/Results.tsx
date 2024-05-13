@@ -1,32 +1,29 @@
 // import { exampleReport } from "src/assets/test_data/expampleReport"
-import { Container } from 'react-bootstrap'
-import Navbar from 'react-bootstrap/Navbar'
-//import { RenderReportProps } from '@src/components/DisplayQuiz' 
-//import { useState } from 'react'
+import { RenderReport } from 'src/components/RenderReport'
+import { FinalReport } from 'Types/FinalReportTypes';
+import { useState } from 'react'
 
 export const Results = () => {
   //const [results, setResults] = useState<RenderReportProps[]>();
-  //const [currResult, setCurrResult] = useState<RenderReportProps>(localStorage.getItem("RESULTS"));
-  if (localStorage.getItem("RESULTS") === null)
+  const [currRoles, setCurrRoles] = useState<string[]>([]);
+  const storageResults = localStorage.getItem("RESULTS");
+  const [reports, setReports] = useState<FinalReport[] | null>(JSON.parse(storageResults ? storageResults : ""));
+  if (report === null)
   return(
     <>
         military
     </>
   )
   else { // results page
+    //
     return(
-      <div className="results">
-      <Container>
-
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Container>
-      </div>
+      <>
+        {reports?.map((finalReport: FinalReport) => {
+          <
+        })}
+        <RenderReport finalReport={report}  currRoles={currRoles} setCurrRoles={setCurrRoles}/>
+      </>
+      
     )
   }
 }

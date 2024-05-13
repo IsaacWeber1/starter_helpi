@@ -2,6 +2,7 @@ import { FinalReport } from "Types/FinalReportTypes";
 
 
 export const exampleReport: FinalReport = {
+    reportName: "example report",
     imgsLoaded: false,
     careers: [
     {

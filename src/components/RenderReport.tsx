@@ -3,27 +3,52 @@ import { RenderReportProps } from "./DisplayQuiz";
 import { Career, FinalReport } from "Types/FinalReportTypes";
 import { CreateImage } from "src/controller/CreateImage";
 import { useEffect, useState } from "react";
+import { Loading } from "./Loading";
 
 const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => {
-    const report: Career[] = finalReport.careers.map(async (c: Career) => ({...c, picture : await CreateImage(c.role)}));
+    const asyncReport = await Promise.all(finalReport.careers.map(
+        async (c: Career) => (
+            {
+                ...c,
+                picture: await CreateImage(c.role)
+            }
+        )));
+    const report = asyncReport.map((c: Career) => ({...c}))
     console.log(report);
     return {
+        reportName: finalReport.reportName,
         imgsLoaded: true,
         careers: report
     };
 }
 
-export const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, updateRoles }) => {
+export const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, setCurrRoles }) => {
+    console.log(finalReport);
+    function updateRoles (newRole: string): void {
+        setCurrRoles(prevRoles => 
+            prevRoles.includes(newRole)
+            ? prevRoles.filter(role => role !== newRole)
+            : [...prevRoles, newRole]
+        );
+
+    }
+
     const [report, setReport] = useState<FinalReport>(finalReport);
+    const [imgsLoaded, setImgsLoaded] = useState<boolean>(finalReport.imgsLoaded);
     MapGBTCareers(finalReport);
 
     useEffect(() => {
         const LoadImgs = async() => {
-            setReport(MapGBTCareers(report));
+            setImgsLoaded(true);
+            setReport(await MapGBTCareers(report));
+            // logic for setting to local-storage
+            let quizzes = localStorage.getItem("RESULTS");
+            const newResults = (quizzes === null) ? [report] : [report, ...JSON.parse(quizzes)];
+            localStorage.setItem("RESULTS", JSON.stringify(newResults));
         }
-        if(!report.imgsLoaded) LoadImgs();
+        if(!imgsLoaded) LoadImgs();
     },
-    [report])
+    [report, imgsLoaded])
     return (
         <>
             <h2>Final Results:</h2>
@@ -44,6 +69,7 @@ export const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRol
                         <ol style={{listStyleType: 'none'}}>
                             <li><strong>Role:</strong> {career.description}</li>
                             <br></br>
+                            {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} alt={career.role}></img>}
                             <li>
                                 <h5>Benefits:</h5>
                                 <ul style={{listStyleType: 'disk'}}>
