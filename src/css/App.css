@@ -57,9 +57,13 @@ nav {
   border: 1px solid var(--gift-wrap-purple);
   border-radius: 5px; 
   background-color: var(--ocean-eyes);
-  list-style-type: disk;
 }
 
+.App-career-container-o {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+}
 .quiz-tooltip{
   cursor: pointer;
   color: var(--dawn-dish-blue);
