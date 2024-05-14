@@ -1,11 +1,11 @@
 // import { exampleReport } from "src/assets/test_data/expampleReport"
 import { RenderReport } from 'src/components/RenderReport'
 import { FinalReport } from 'Types/FinalReportTypes';
-import { setExampleReportToStorage } from 'src/assets/test_data/expampleReport';
+// import { setExampleReportToStorage } from 'src/assets/test_data/expampleReport';
 
 export const Results = () => {
   
-  setExampleReportToStorage();
+  // setExampleReportToStorage();
   const storageResults = localStorage.getItem("RESULTS");
   const reports: FinalReport[] | null = (storageResults ? JSON.parse(storageResults) : null);
   if (reports === null)
@@ -18,13 +18,13 @@ export const Results = () => {
     //
     return(
       <>
-        <li>
+        <ul>
           {reports?.map((report: FinalReport) => 
-            <ul key={report.reportName}>
+            <li key={report.reportName}>
               <RenderReport finalReport={report} />
-            </ul>
+            </li>
           )}
-        </li>
+        </ul>
         
         
       </>

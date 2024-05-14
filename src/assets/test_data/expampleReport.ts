@@ -4,7 +4,7 @@ import { FinalReport } from "Types/FinalReportTypes";
 export const exampleReport: FinalReport = {
     reportId: 0,
     reportName: "example report",
-    imgsLoaded: false,
+    imgsLoaded: true,
     careers: [
     {
         "role": "Data Scientist",

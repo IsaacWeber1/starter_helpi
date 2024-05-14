@@ -194,15 +194,13 @@ export function DisplayQuiz(
         const [response, setResponse] = useState<OpenAI.ChatCompletion>();
         const [loaded, setLoaded] = useState(false);
 
-        useEffect(() => {
-            async function getFinalResponse() {
-                const response = await addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
-                setResponse(response);
-                setLoaded(true);
-            }
+        async function getFinalResponse() {
+            const response = await addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
+            setResponse(response);
+            setLoaded(true);
+        }
     
-            if (!response) getFinalResponse();
-        }, [questionAns, response]);
+        if (!response) getFinalResponse();
     
         if (!loaded) return <Loading type="finalReport"/>;
     
@@ -222,6 +220,7 @@ export function DisplayQuiz(
         }
         AddToStorageResponses(finalResponse);
         return <RenderReport finalReport={finalResponse} />;
+        
     }
     
 

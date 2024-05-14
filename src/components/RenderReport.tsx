@@ -6,7 +6,6 @@ import { Loading } from "./Loading";
 import { ModifyStorageResponse } from "src/controller/StorageReportHnadler";
 
 const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => {
-    console.log("before careers mapped", finalReport);
     const asyncReport =  Promise.all(finalReport.careers.map(
         async (c: Career) => (
             {
@@ -42,43 +41,40 @@ const RenderDropdownReport = ({career} : {career : Career}) => {
             <HiChevronDown 
                 onClick={() => setDisplayDown(!displayDown)}
                 size={20}
-                style={{position: "relative"}}
             ><strong>{career.role}</strong></HiChevronDown>
             <div className={(displayDown ? "results-display-down" : "results-no-display-down")}>
-                <ol>
-                    <li><strong>Role:</strong> {career.description}</li>
-                    <br></br>
-                    {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} alt={career.role}></img>}
+            <strong>Role:</strong> {career.description}
+            <br></br>
+            {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} alt={career.role}></img>}
+            <ul>
+                <h5>Benefits:</h5>
+                <li>
+                    {career.benefits.map((benefit, index) => (
+                        <p key={index}>{benefit}</p>
+                    ))}
+                </li>
+                <br></br>
+                <li>
+                    <h5>Challenges:</h5>
                     <li>
-                        <h5>Benefits:</h5>
-                        <ul style={{listStyleType: 'disk'}}>
-                            {career.benefits.map((benefit, index) => (
-                                <p key={index} style={{listStyleType: 'disk'}}>{benefit}</p>
-                            ))}
-                        </ul>
+                        {career.challenges.map((challenge, index) => (
+                            <p key={index}>{challenge}</p>
+                        ))}
                     </li>
-                    <br></br>
+                </li>
+                <br></br>
+                <li>
+                    <h5>Links:</h5>
                     <li>
-                        <h5>Challenges:</h5>
-                        <ul style={{listStyleType: 'disk'}}>
-                            {career.challenges.map((challenge, index) => (
-                                <p key={index}>{challenge}</p>
-                            ))}
-                        </ul>
+                        {career.links.map((link, index) => (
+                            <>
+                                <a href={link} key={index}>{link}</a>
+                                <br></br>
+                            </>
+                        ))}
                     </li>
-                    <br></br>
-                    <li>
-                        <h5>Links:</h5>
-                        <ul style={{listStyleType: 'disk'}}>
-                            {career.links.map((link, index) => (
-                                <>
-                                    <a href={link} key={index}>{link}</a>
-                                    <br></br>
-                                </>
-                            ))}
-                        </ul>
-                    </li>
-                </ol>
+                </li>
+                </ul>
             </div>
         </div>
     )
@@ -91,11 +87,12 @@ export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
     console.log("on-reload ->", report, "imgs-loaded ->", imgsLoaded);
 
     const getImgs = async () => {
-        const res = await MapGBTCareers(report)
-        console.log("imgs response", res)
-        setReport(res);
-        ModifyStorageResponse(res.reportId, res);
         setImgsLoaded(true);
+        const load = MapGBTCareers(report)
+        load.then((res) => {
+            setReport(res);
+            ModifyStorageResponse(res.reportId, res);
+        })
     }
 
     if(!imgsLoaded) getImgs();
@@ -105,7 +102,7 @@ export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
     return (
         <>
             {report.careers.map((career: Career) => (
-                <RenderDropdownReport career={career}/>
+                <RenderDropdownReport key={career.role} career={career}/>
             ))}
             <br></br>
         </>

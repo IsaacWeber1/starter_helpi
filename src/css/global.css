@@ -25,7 +25,7 @@
   --gift-wrap-purple : #352369;
 }
 
-body html{
+body, html{
   margin: 0;
   padding: 0;
 }
@@ -39,7 +39,7 @@ body {
   background-color: var(--off-white);
 }
 
-ul ol li {
+ul, ol, li {
   list-style-type: none;
   padding-left: 0;
 }

@@ -11,6 +11,5 @@ export const CreateImage = async (career: string) => {
         return undefined;
     })
     const response = await asyncResponse;
-    console.log(response);
     return response.data[0].url;
 }
