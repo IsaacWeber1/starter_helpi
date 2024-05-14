@@ -1,5 +1,5 @@
 // Import necessary hooks and components
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Question, QuestionComponentProps } from "../interfaces/QuestionTypes";
 import { McSingleResponse } from "./McSingleResponse";
 import { McMultiResponse } from "./McMultiResponse";
@@ -14,7 +14,7 @@ import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
 import { FinalReport } from "Types/FinalReportTypes";
 import { RenderReport } from "./RenderReport";
-import { AddToStorageResponses } from "src/controller/StorageReportHnadler";
+// import { AddToStorageResponses } from "src/controller/StorageReportHnadler";
 
 export type RenderReportProps = {
     finalReport: FinalReport;
@@ -218,7 +218,7 @@ export function DisplayQuiz(
             imgsLoaded: false,
             careers: [...finalRep.careers]
         }
-        AddToStorageResponses(finalResponse);
+        // AddToStorageResponses(finalResponse);
         return <RenderReport finalReport={finalResponse} />;
         
     }
