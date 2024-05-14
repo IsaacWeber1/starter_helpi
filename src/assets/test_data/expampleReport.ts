@@ -1,7 +1,11 @@
 import { FinalReport } from "Types/FinalReportTypes";
 
 
-export const exampleReport: FinalReport = {careers: [
+export const exampleReport: FinalReport = {
+    reportId: 0,
+    reportName: "example report",
+    imgsLoaded: true,
+    careers: [
     {
         "role": "Data Scientist",
         "description": "Responsible for analyzing large sets of structured and unstructured data to derive actionable insights and solutions in strategic areas of business.",
@@ -18,7 +22,8 @@ export const exampleReport: FinalReport = {careers: [
         "links": [
             "https://www.bls.gov/ooh/math/data-scientists.htm",
             "https://datascience.udacity.com/"
-        ]
+        ],
+        picture: undefined
     },
     {
         "role": "Software Engineer",
@@ -36,7 +41,8 @@ export const exampleReport: FinalReport = {careers: [
         "links": [
             "https://stackoverflow.com/",
             "https://github.com/"
-        ]
+        ],
+        picture: undefined
     },
     {
         "role": "UX Designer",
@@ -54,10 +60,11 @@ export const exampleReport: FinalReport = {careers: [
         "links": [
             "https://www.behance.net/",
             "https://www.adobe.com/products/xd.html"
-        ]
+        ],
+        picture: undefined
     }
 ]}
 
-if(localStorage.getItem("RESULTS") === null) {
+export function setExampleReportToStorage() {
     localStorage.setItem("RESULTS", JSON.stringify([exampleReport]));
 }

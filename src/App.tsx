@@ -19,11 +19,6 @@ export default function App(): JSX.Element {
   <div className="main-container">
     <Router>
       <div className="App"
-      style={{
-        padding: 'vh',
-        margin: 'vh'
-
-    }}
       >
         <header className="App-header">
           <nav>

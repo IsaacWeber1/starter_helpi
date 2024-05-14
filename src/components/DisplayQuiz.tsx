@@ -1,5 +1,5 @@
 // Import necessary hooks and components
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Question, QuestionComponentProps } from "../interfaces/QuestionTypes";
 import { McSingleResponse } from "./McSingleResponse";
 import { McMultiResponse } from "./McMultiResponse";
@@ -12,13 +12,15 @@ import { CreateBasicStartingPrompt, CreateStartingPrompt, createFinalResponse } 
 import { QuestionAnswer } from "src/interfaces/PromptQuestionsSetup";
 import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
-import { HiChevronDown, } from "react-icons/hi2";
-import { FinalReport, Career } from "Types/FinalReportTypes";
+import { FinalReport } from "Types/FinalReportTypes";
+import { RenderReport } from "./RenderReport";
+import { FinalChatResponsePackage } from "Types/ResponsePackage";
+// import { AddToStorageResponses } from "src/controller/StorageReportHnadler";
 
 export type RenderReportProps = {
     finalReport: FinalReport;
     currRoles: string[];
-    updateRoles: (role: string) => void;
+    setCurrRoles: Dispatch<SetStateAction<string[]>>;
 };
 
 type DisplayQuizProps = Record<string, Question>;
@@ -188,193 +190,48 @@ export function DisplayQuiz(
         setIsLoading(false);
     }
     
-
-        
-    //     if (forewards) { // if going to next question
-    //         const answerIndex = answers.findIndex(a => a.questionId === currentQuestionId);
-    //         const nextQuestionId = await determineNextQuestionId(currentQuestionId, curQuiz, true);
-    //         console.log("next question id", nextQuestionId);
-    //         if (parentProps.questionsAnswered === lastQuestionArray) { // if questions answered is equal to the latest array, appends it with newest answer
-    //             setAnswers([...answers, {questionId: currentQuestionId, answer: answer}])
-    //             setQuestionArray(lastQuestionArray + 1);
-    //         } 
-    //         else { // else, splices array and puts in the new answer
-    //             const updatedAnswers = [...answers];
-    //             updatedAnswers[answerIndex] = { questionId: currentQuestionId, answer: answer };
-    //             setAnswers(updatedAnswers);
-
-    //         }
-    //         parentProps.setQuestionsAnswered(parentProps.questionsAnswered + 1); // increments questions answered
-
-    //         if (nextQuestionId === "") {
-    //             setIsQuizComplete(true); // End of the curQuiz
-    //         }
-    //         else {
-    //             setCurrentQuestionId(nextQuestionId); // Move to the next question
-    //         }
-    //     } 
-    //     else { // backwards
-    //         parentProps.setQuestionsAnswered(parentProps.questionsAnswered - 1);
-    //         const nextQuestionId = determineNextQuestionId(currentQuestionId, curQuiz, false);
-    //         setCurrentQuestionId(await nextQuestionId);
-    //     }
-    //     setIsLoading(false);
-    // }
-    // if(Object.keys(quiz).length === 0) createQuiz();
-
-    
-    
-    const RenderReport: React.FC<RenderReportProps> = ({ finalReport, currRoles, updateRoles }) => {
-        return (
-            <>
-                <h2>Final Results:</h2>
-                <br></br>
-                {finalReport.careers.map((career: Career) => (
-                    <div 
-                        className="App-career-container"
-                        key={career.role}
-                    >
-                        <h3>{career.role}</h3>
-                        <HiChevronDown 
-                            onClick={() => updateRoles(career.role)}
-                            size={20}
-                            style={{position: "relative"}}
-                        ><strong>{career.role}</strong></HiChevronDown>
-                        <div style={{textAlign: 'left'}}>
-                        {currRoles.includes(career.role) && (
-                            <ol style={{listStyleType: 'none'}}>
-                                <li><strong>Role:</strong> {career.description}</li>
-                                <br></br>
-                                <li>
-                                    <h5>Benefits:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.benefits.map((benefit, index) => (
-                                            <p key={index} style={{listStyleType: 'disk'}}>{benefit}</p>
-                                        ))}
-                                    </ul>
-                                </li>
-                                <br></br>
-                                <li>
-                                    <h5>Challenges:</h5>
-                                    <ul style={{listStyleType: 'disk'}}>
-                                        {career.challenges.map((challenge, index) => (
-                                            <p key={index}>{challenge}</p>
-                                        ))}
-                                    </ul>
-                                </li>
-                                <br></br>
-                                <li>
-                                    <h5>Links:</h5>
-                                    <ul style={{listStyleType: 'disk', color: "darkblue"}}>
-                                        {career.links.map((link, index) => (
-                                            <>
-                                                <a href={link} key={index}>{link}</a>
-                                                <br></br>
-                                            </>
-                                        ))}
-                                    </ul>
-                                </li>
-                            </ol>
-                        )}
-                        </div>
-                    </div>
-                ))}
-            </>
-        );
-    };
-    
     
     const DisplayResults = () => {
         const questionAns: QuestionAnswer[] = answers.map((q: QuestionAns) => ({question: curQuiz[q.questionId], answer: q.answer}));
-        const [response, setResponse] = useState<OpenAI.ChatCompletion>();
-        const [loaded, setLoaded] = useState(false);
-        const [currRoles, setCurrRoles] = useState<string[]>([]); 
+        const [response, setResponse] = useState<FinalChatResponsePackage>({isLoaded: false, response: null})
 
-        useEffect(() => {
-            async function getFinalResponse() {
-                const response = await addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
-                setResponse(response);
-                setLoaded(true);
-            }
-    
-            if (!response) getFinalResponse();
-        }, [questionAns, response]);
-    
-        if (!loaded) return <Loading type="finalReport"/>;
-    
-        if (!response || !response.choices.length) return <p>Error Occurred</p>;
-
-        const finalAns = response.choices[response.choices.length-1].message.content;
-        if(finalAns == null) return<>Error Occured</>
-        const finalResponse:FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
-
-        function updateRoles (newRole: string) {
-            // const newRoles: string[] = currRoles.includes(newRole) 
-            //     ? [...currRoles].filter((currRole: string) => (currRole !== newRole))
-            //     : [...currRoles, newRole];
-            //     setCurrRoles(newRoles);
-            setCurrRoles(prevRoles => 
-                prevRoles.includes(newRole)
-                ? prevRoles.filter(role => role !== newRole)
-                : [...prevRoles, newRole]
-            );
-    
+        
+        async function getFinalResponse() {
+            const chat = addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
+            chat.then(res => {
+                // setState is reloaded only once
+                setResponse({
+                    isLoaded: true,
+                    response: res
+                })
+            })
+            
         }
-        //maybe try using HiChevronDoubleUp when dropdown is down
-
-        return <RenderReport finalReport={finalResponse} currRoles={currRoles} updateRoles={updateRoles} />;
     
-        // return (
-        //     <>
-        //         <h2>Final Results:</h2>
-        //         {finalResponse.careers.map((career: Career) => (
-        //             <div 
-        //                 className="App-career-container"
-        //                 key={career.role}
-        //             > {/* Assuming role is unique */}
-        //                 <h3>{career.role}</h3>
-        //                 <HiChevronDown 
-        //                     onClick={() => updateRoles(career.role)}
-        //                     size={20}
-        //                     style={{position: "relative"}}
-        //                 ><strong>{career.role}</strong></HiChevronDown>
-        //                 <div style={{textAlign: 'left'}}>
-        //                 {currRoles.includes(career.role) && (
-        //                     <ul
-        //                         style={{listStyleType:'none'}}
-        //                     >
-        //                         <li><strong>Role:</strong> {career.description}</li>
-        //                         <br></br>
-        //                         <li>
-        //                             <h3>Benefits:</h3>
-        //                             <ul
-        //                                 style={{listStyleType: 'disk'}}
-        //                             >
-        //                                 {career.benefits.map((benefit, index) => (
-        //                                     <li key={index}>{benefit}</li> // Not ideal if benefits can change
-        //                                 ))}
-        //                             </ul>
-        //                         </li>
-        //                         <br></br>
-        //                         <li>
-        //                             {career.challenges.map((challenge, index) => (
-        //                                 <li key={index}>{challenge}</li> // Not ideal if challenges can change
-        //                             ))}
-        //                         </li>
-        //                         <br></br>
-        //                         <li>
-        //                             {career.links.map((link, index) => (
-        //                                 <a href={link} key={index}>{link}</a> // Not ideal if links can change
-        //                             ))}
-        //                         </li>
-        //                     </ul>
-        //                 )}
-        //                 </div>
-        //         </div>
-        //         ))}
+        if (!response.isLoaded) getFinalResponse();
+    
+        if (!response.isLoaded) return <Loading type="finalReport"/>;
+    
+        // errors
+        if (response.response === null) return <>error Occured</>;
+        if (!response.response || !response.response.choices) return <p>Error Occurred</p>;
 
-        //     </>
-        // );
+        const finalAns = response.response.choices[response.response.choices.length-1].message.content;
+        if(finalAns == null) return<>Error Occured</>
+        console.log("Display-results");
+        const finalRep: FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
+        const localReports = localStorage.getItem("RESULTS");
+        const numberReports = localReports ? JSON.parse(localReports).length : 0;
+        // creating final report object, id is one greater than the number held in local storage
+        const finalResponse: FinalReport = {
+            reportId: numberReports+1,
+            reportName: finalRep.reportName,
+            imgsLoaded: false,
+            careers: [...finalRep.careers]
+        }
+        // AddToStorageResponses(finalResponse);
+        return <RenderReport finalReport={finalResponse} />;
+        
     }
     
 

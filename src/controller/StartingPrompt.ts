@@ -228,6 +228,7 @@ export const createFinalResponse = (questionAns: QuestionAnswer[]) => {
         mapQuestionsToAnswers(questionAns) +
         "\nBased on the information provided, please create a list of possible career goals in the following JSON format:\n" +
         `{
+            "reportName" : "generate an appropriate name to call this report",
             "careers": [
                 {
                     "role": "Specify the role, tailored to the user's level of experience.",
@@ -236,6 +237,7 @@ export const createFinalResponse = (questionAns: QuestionAnswer[]) => {
                         "List potential benefits of this career, ideally connecting them to the user's expressed interests or goals.",
                         "Additional benefit related to the user's background."
                     ],
+                    "picture": "you will leave this feild undefined"
                     "challenges": [
                         "Describe possible challenges associated with this career.",
                         "Relate these challenges to the user's past experiences or concerns."
