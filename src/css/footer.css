@@ -2,7 +2,7 @@ footer {
     position: fixed; 
     bottom:0%;
     width:100%; 
-    background-color: var(--dawn-dish-blue);
+    background-color: var(--almost-teal);
     display: grid;
     grid-template-columns: 65% 35%;
 }
@@ -25,10 +25,10 @@ footer {
   }
   
   .github-links {
-    background-color: var(--gift-wrap-purple);
+    background-color: var(--dawn-dish-blue);
     text-decoration: inherit;
-    color: var(--off-white);
-    border: 5px solid var(--gift-wrap-purple);
+    color: var(--off-tan);
+    border: 5px solid var(--dawn-dish-blue);
     border-radius: 5px;
   }
   

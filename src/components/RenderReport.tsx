@@ -44,39 +44,44 @@ const RenderDropdownReport = ({career} : {career : Career}) => {
                 size={20}
             ><strong>{career.role}</strong></HiChevronDown>
             <div className={(displayDown ? "results-display-down" : "results-no-display-down")}>
-            <strong>Role:</strong> {career.description}
+            <div className="report-list-item"><strong>Role:</strong> {career.description}</div>
             <br></br>
-            {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} alt={career.role}></img>}
-            <ul>
-                <h5>Benefits:</h5>
-                <li>
-                    {career.benefits.map((benefit, index) => (
-                        <p key={index}>{benefit}</p>
-                    ))}
-                </li>
-                <br></br>
-                <li>
-                    <h5>Challenges:</h5>
-                    <li>
-                        {career.challenges.map((challenge, index) => (
-                            <p key={index}>{challenge}</p>
-                        ))}
-                    </li>
-                </li>
-                <br></br>
-                <li>
-                    <h5>Links:</h5>
-                    <li>
-                        {career.links.map((link, index) => (
-                            <>
-                                <a href={link} key={index}>{link}</a>
-                                <br></br>
-                            </>
-                        ))}
-                    </li>
-                </li>
-                </ul>
+            <div className="img-container">
+                {career.picture === undefined ? <Loading type=""/> : <img src={career.picture} className="career-img" alt={career.role}></img>}
             </div>
+                <div className="career-container">
+                    <ul className="report-list">
+                        <li className="report-list-item">
+                            <h5>Benefits:</h5>
+                            {career.benefits.map((benefit, index) => (
+                                <p key={index}>{benefit}</p>
+                            ))}
+                        </li>
+                        <br></br>
+                        <li className="report-list-item">
+                            <h5>Challenges:</h5>
+                            <li>
+                                {career.challenges.map((challenge, index) => (
+                                    <p key={index}>{challenge}</p>
+                                ))}
+                            </li>
+                        </li>
+                        <br></br>
+                        <li className="report-list-item">
+                            <h5>Links:</h5>
+                            <li className="report-list-item">
+                                {career.links.map((link, index) => (
+                                    <>
+                                        <a className="report-link" href={link} key={index}>{link}</a>
+                                        <br></br>
+                                    </>
+                                ))}
+                            </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     )
 }
@@ -106,9 +111,11 @@ export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
     
     return (
         <>
-            {response.report.careers.map((career: Career) => (
-                <RenderDropdownReport key={career.role} career={career}/>
-            ))}
+            <div className="App-career-container-o">
+                {response.report.careers.map((career: Career) => (
+                    <RenderDropdownReport key={career.role} career={career}/>
+                ))}
+            </div>
             <br></br>
         </>
     );

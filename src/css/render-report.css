@@ -5,3 +5,28 @@
 .results-no-display-down {
     display: none;
 }
+
+.career-container {
+    text-align: left;
+}
+.img-container {
+    display: flex;
+    justify-content: center;
+    object-fit: contain;
+    margin-bottom: 0.25em;
+}
+
+.career-img {
+    max-width: 45%;
+}
+
+.report-list-item {
+    background-color: var(--dawn-dish-blue);
+    border: 2px solid var(--dawn-dish-blue);
+    border-radius: 0.25em;
+}
+
+.report-link {
+    text-decoration: inherit;
+    color: var(--off-white);
+}
