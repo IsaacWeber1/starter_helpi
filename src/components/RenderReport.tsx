@@ -4,6 +4,7 @@ import { CreateImage } from "src/controller/CreateImage";
 import { useState } from "react";
 import { Loading } from "./Loading";
 import { ModifyStorageResponse } from "src/controller/StorageReportHnadler";
+import { FinalReportResponsePackage } from "Types/ResponsePackage";
 
 const MapGBTCareers = async (finalReport: FinalReport): Promise<FinalReport> => {
     const asyncReport =  Promise.all(finalReport.careers.map(
@@ -82,26 +83,30 @@ const RenderDropdownReport = ({career} : {career : Career}) => {
 
 export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
 
-    const [report, setReport] = useState<FinalReport>(finalReport);
-    const [imgsLoaded, setImgsLoaded] = useState<boolean>(finalReport.imgsLoaded);
-    console.log("on-reload ->", report, "imgs-loaded ->", imgsLoaded);
+    const [response, setResponse] = useState<FinalReportResponsePackage>({isImgsLoaded: finalReport.imgsLoaded, report: finalReport});
+    console.log("on-reload ->", response, "imgs-loaded ->", response.isImgsLoaded);
+    if(response.report === null) return <>Null Report</>
 
     const getImgs = async () => {
-        setImgsLoaded(true);
-        const load = MapGBTCareers(report)
+        if (response === null) return;
+        const load = MapGBTCareers(response.report)
         load.then((res) => {
-            setReport(res);
+            console.log("imgs-res", res);
+            setResponse({
+                isImgsLoaded: true,
+                report: res
+            });
             ModifyStorageResponse(res.reportId, res);
         })
     }
 
-    if(!imgsLoaded) getImgs();
+    if(!response.isImgsLoaded) getImgs();
 
 
     
     return (
         <>
-            {report.careers.map((career: Career) => (
+            {response.report.careers.map((career: Career) => (
                 <RenderDropdownReport key={career.role} career={career}/>
             ))}
             <br></br>

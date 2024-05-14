@@ -14,6 +14,7 @@ import { Loading } from "./Loading";
 import { Container } from "react-bootstrap";
 import { FinalReport } from "Types/FinalReportTypes";
 import { RenderReport } from "./RenderReport";
+import { FinalChatResponsePackage } from "Types/ResponsePackage";
 // import { AddToStorageResponses } from "src/controller/StorageReportHnadler";
 
 export type RenderReportProps = {
@@ -191,23 +192,32 @@ export function DisplayQuiz(
     
     const DisplayResults = () => {
         const questionAns: QuestionAnswer[] = answers.map((q: QuestionAns) => ({question: curQuiz[q.questionId], answer: q.answer}));
-        const [response, setResponse] = useState<OpenAI.ChatCompletion>();
-        const [loaded, setLoaded] = useState(false);
+        const [response, setResponse] = useState<FinalChatResponsePackage>({isLoaded: false, response: null})
 
+        
         async function getFinalResponse() {
-            const response = await addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
-            setResponse(response);
-            setLoaded(true);
+            const chat = addResponseGBT({choices: gbtConversation, newMessage: createFinalResponse(questionAns)});
+            chat.then(res => {
+                // setState is reloaded only once
+                setResponse({
+                    isLoaded: true,
+                    response: res
+                })
+            })
+            
         }
     
-        if (!response) getFinalResponse();
+        if (!response.isLoaded) getFinalResponse();
     
-        if (!loaded) return <Loading type="finalReport"/>;
+        if (!response.isLoaded) return <Loading type="finalReport"/>;
     
-        if (!response || !response.choices.length) return <p>Error Occurred</p>;
+        // errors
+        if (response.response === null) return <>error Occured</>;
+        if (!response.response || !response.response.choices) return <p>Error Occurred</p>;
 
-        const finalAns = response.choices[response.choices.length-1].message.content;
+        const finalAns = response.response.choices[response.response.choices.length-1].message.content;
         if(finalAns == null) return<>Error Occured</>
+        console.log("Display-results");
         const finalRep: FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
         const localReports = localStorage.getItem("RESULTS");
         const numberReports = localReports ? JSON.parse(localReports).length : 0;

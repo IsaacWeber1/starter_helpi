@@ -10,6 +10,9 @@ export const CreateImage = async (career: string) => {
     asyncResponse.catch((error) => {
         return undefined;
     })
+    console.log("img-api called");
     const response = await asyncResponse;
     return response.data[0].url;
+    
+    // return "";
 }
