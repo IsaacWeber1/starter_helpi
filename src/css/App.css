@@ -63,6 +63,9 @@ nav {
   display: block;
   margin: auto;
   max-width: 90%;
+  background-color: var(--dawn-dish-blue);
+  border: 2px solid var(--dawn-dish-blue);
+  border-radius: 0.25em;
 }
 .quiz-tooltip{
   cursor: pointer;

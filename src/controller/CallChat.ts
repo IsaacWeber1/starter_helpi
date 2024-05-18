@@ -24,7 +24,7 @@ export async function callGBT(
         { role: 'system', content: startingPrompt },
         { role: 'user', content: userPrompt}
         ],
-      model: 'gpt-4-turbo',
+      model: 'gpt-4o',
       response_format: { type: 'json_object' }
     });
     return chatCompletion;
@@ -51,7 +51,7 @@ export async function addResponseGBT(
       ...messages,
       {role: 'user', content: newMessage}
     ],
-    model: 'gpt-4-turbo',
+    model: 'gpt-4o',
     response_format: { type: 'json_object' }
   });
   return chatCompletion;

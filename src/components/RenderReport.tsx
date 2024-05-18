@@ -68,6 +68,11 @@ const RenderDropdownReport = ({career} : {career : Career}) => {
                         </li>
                         <br></br>
                         <li className="report-list-item">
+                            <h5>Salary:</h5>
+                            {`the average salary for ${career.role} is ${career.salary}`}
+                        </li>
+                        <br />
+                        <li className="report-list-item">
                             <h5>Links:</h5>
                             <li className="report-list-item">
                                 {career.links.map((link, index) => (
@@ -89,6 +94,7 @@ const RenderDropdownReport = ({career} : {career : Career}) => {
 export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
 
     const [response, setResponse] = useState<FinalReportResponsePackage>({isImgsLoaded: finalReport.imgsLoaded, report: finalReport});
+    const [isDrop, setIsDrop] = useState<boolean>(false);
     console.log("on-reload ->", response, "imgs-loaded ->", response.isImgsLoaded);
     if(response.report === null) return <>Null Report</>
 
@@ -112,9 +118,17 @@ export const RenderReport = ({finalReport} : {finalReport : FinalReport}) => {
     return (
         <>
             <div className="App-career-container-o">
-                {response.report.careers.map((career: Career) => (
-                    <RenderDropdownReport key={career.role} career={career}/>
-                ))}
+                <strong>{response.report.reportName}</strong>
+                <HiChevronDown 
+                    onClick={() => setIsDrop(!isDrop)}
+                    size={20}>
+                </HiChevronDown>
+                <div className={(isDrop ? "results-display-down" : "results-no-display-down")}>
+                    {response.report.careers.map((career: Career) => (
+                        <RenderDropdownReport key={career.role} career={career}/>
+                    ))} 
+                </div>
+                
             </div>
             <br></br>
         </>

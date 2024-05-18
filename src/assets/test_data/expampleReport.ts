@@ -1,10 +1,11 @@
+import { AddToStorageResponses, isInStroageResponse } from "src/controller/StorageReportHnadler";
 import { FinalReport } from "Types/FinalReportTypes";
 
 
 export const exampleReport: FinalReport = {
     reportId: 0,
     reportName: "example report",
-    imgsLoaded: false,
+    imgsLoaded: true,
     careers: [
     {
         "role": "Data Scientist",
@@ -19,6 +20,7 @@ export const exampleReport: FinalReport = {
             "Handling very large datasets can be complex",
             "Need to translate technical findings to non-technical stakeholders"
         ],
+        "salary" : "0",
         "links": [
             "https://www.bls.gov/ooh/math/data-scientists.htm",
             "https://datascience.udacity.com/"
@@ -38,6 +40,7 @@ export const exampleReport: FinalReport = {
             "Sometimes requires working with legacy code",
             "Rapidly changing technology landscape"
         ],
+        "salary" : "0",
         "links": [
             "https://stackoverflow.com/",
             "https://github.com/"
@@ -57,6 +60,7 @@ export const exampleReport: FinalReport = {
             "Balancing user needs with business goals",
             "Sometimes restricted by technology limits"
         ],
+        "salary" : "0",
         "links": [
             "https://www.behance.net/",
             "https://www.adobe.com/products/xd.html"
@@ -66,5 +70,7 @@ export const exampleReport: FinalReport = {
 ]}
 
 export function setExampleReportToStorage() {
-    localStorage.setItem("RESULTS", JSON.stringify([exampleReport]));
+    if(!isInStroageResponse(exampleReport)) {
+        AddToStorageResponses(exampleReport);
+    }
 }

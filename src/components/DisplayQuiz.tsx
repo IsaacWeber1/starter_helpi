@@ -15,7 +15,7 @@ import { Container } from "react-bootstrap";
 import { FinalReport } from "Types/FinalReportTypes";
 import { RenderReport } from "./RenderReport";
 import { FinalChatResponsePackage } from "Types/ResponsePackage";
-// import { AddToStorageResponses } from "src/controller/StorageReportHnadler";
+import { AddToStorageResponses, isInStroageResponse } from "src/controller/StorageReportHnadler";
 
 export type RenderReportProps = {
     finalReport: FinalReport;
@@ -213,6 +213,7 @@ export function DisplayQuiz(
         if (!response.isLoaded) return <Loading type="finalReport"/>;
     
         // errors
+
         if (response.response === null) return <>error Occured</>;
         if (!response.response || !response.response.choices) return <p>Error Occurred</p>;
 
@@ -220,16 +221,18 @@ export function DisplayQuiz(
         if(finalAns == null) return<>Error Occured</>
         console.log("Display-results");
         const finalRep: FinalReport = JSON.parse(finalAns.replace("carears", "careers"));
-        const localReports = localStorage.getItem("RESULTS");
-        const numberReports = localReports ? JSON.parse(localReports).length : 0;
+        // const localReports = localStorage.getItem("RESULTS");
+        // const numberReports = localReports ? JSON.parse(localReports).length : 0;
         // creating final report object, id is one greater than the number held in local storage
         const finalResponse: FinalReport = {
-            reportId: numberReports+1,
+            reportId: 1,
             reportName: finalRep.reportName,
             imgsLoaded: false,
             careers: [...finalRep.careers]
         }
-        // AddToStorageResponses(finalResponse);
+        if (!isInStroageResponse(finalResponse)) {
+            AddToStorageResponses(finalResponse);
+        }
         return <RenderReport finalReport={finalResponse} />;
         
     }

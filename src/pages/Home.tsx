@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form} from "react-bootstrap";
 
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ const verifyAPIKey = async(apiKey: string) => {
       messages: [
         { role: 'user', content: "please say 'validated'" },
         ],
-      model: 'gpt-4-turbo'
+      model: 'gpt-4o'
     });
     // error for 401 access denied will be thrown
   } catch (error) {
@@ -27,14 +27,12 @@ export function ApiKeyInput(): JSX.Element {
   const [isSubmit, setSubmit] = useState<boolean>(true)
   const [validKey, setValidKey] = useState<boolean>(false);
 
-  useEffect(() => {
-    async function getVaildation() {
-      setValidKey(await verifyAPIKey(apiKey));
-    }
-    // this only checks for validation once the form has been submitted
-    if (isSubmit) getVaildation();
+  async function getVaildation() {
     setSubmit(false);
-}, [isSubmit, apiKey, validKey]);
+    setValidKey(await verifyAPIKey(apiKey));
+  }
+  // this only checks for validation once the form has been submitted
+  if (isSubmit) getVaildation();
 
   const changeKey = (event: React.ChangeEvent<HTMLInputElement>) => {
     setApiKey(event.target.value);

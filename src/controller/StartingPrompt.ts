@@ -237,7 +237,8 @@ export const createFinalResponse = (questionAns: QuestionAnswer[]) => {
                         "List potential benefits of this career, ideally connecting them to the user's expressed interests or goals.",
                         "Additional benefit related to the user's background."
                     ],
-                    "picture": "you will leave this feild undefined"
+                    "picture": "you will leave this feild undefined",
+                    "salary" : "provide and average salary to the best of your knowledge, this also may be a range",
                     "challenges": [
                         "Describe possible challenges associated with this career.",
                         "Relate these challenges to the user's past experiences or concerns."
@@ -248,6 +249,7 @@ export const createFinalResponse = (questionAns: QuestionAnswer[]) => {
                     ]
                 }
             ]
-        }`
+        }` +
+        "you can suggest at most 3 careers. It is important you do not suggest any more than 3 careers"
     );
 }

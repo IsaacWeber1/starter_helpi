@@ -3,6 +3,7 @@ export type Career = {
     role: string, 
     description: string,
     picture: string | undefined,
+    salary: string,
     benefits: string[]
     challenges: string[]
     links: string[]
