@@ -1,25 +1,28 @@
-.quiz-select{
-    column-gap: normal;
-}
 
 .quiz-link-select-container {
-    background-color: var(--diamons-blue);
+    background-color: var(--diamond-blue);
+    border: 2px solid var(--diamond-blue);
+    border-radius: 0.25em;
+}
+
+.select-quiz-link-text {
+    --bg-color: var(--dark-royal-blue);
+    background-color: var(--bg-color);
+    border: 1em solid var(--bg-color);
+    border-radius: 0.25em;
+    margin: 0.25em;
 }
 
 .select-quiz-link {
     text-align: center;
-    background-color: var(--diamons-blue);
-    border: 2px solid var(--diamons-blue);
-    border-radius: 5%;
     font-size: calc(10px + 2vmin);
     color: var(--british-khaki);
     text-decoration: inherit;
 }
 
 .quiz-select {
-    background-color: var(--diamons-blue);
     display: flex;
     align-items: center;
-    column-gap: normal;
+    column-gap: 2em;
     margin: 1rem
 }

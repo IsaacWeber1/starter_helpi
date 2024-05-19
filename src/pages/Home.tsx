@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form} from "react-bootstrap";
 
-import { Link } from "react-router-dom";
 import { openaiToken } from "src/controller/openaiToken";
+import { SelectQuiz } from "./SelectQuiz";
 
 const verifyAPIKey = async(apiKey: string) => {
   try {
@@ -10,7 +10,7 @@ const verifyAPIKey = async(apiKey: string) => {
       messages: [
         { role: 'user', content: "please say 'validated'" },
         ],
-      model: 'gpt-4-turbo'
+      model: 'gpt-4o'
     });
     // error for 401 access denied will be thrown
   } catch (error) {
@@ -27,14 +27,12 @@ export function ApiKeyInput(): JSX.Element {
   const [isSubmit, setSubmit] = useState<boolean>(true)
   const [validKey, setValidKey] = useState<boolean>(false);
 
-  useEffect(() => {
-    async function getVaildation() {
-      setValidKey(await verifyAPIKey(apiKey));
-    }
-    // this only checks for validation once the form has been submitted
-    if (isSubmit) getVaildation();
+  async function getVaildation() {
     setSubmit(false);
-}, [isSubmit, apiKey, validKey]);
+    setValidKey(await verifyAPIKey(apiKey));
+  }
+  // this only checks for validation once the form has been submitted
+  if (isSubmit) getVaildation();
 
   const changeKey = (event: React.ChangeEvent<HTMLInputElement>) => {
     setApiKey(event.target.value);
@@ -77,24 +75,7 @@ export const Home = () => {
       <br></br>
       <br></br>
       <h3 className="App-misc-text">Select Your Guide:</h3>
-        <div className="quiz-select">
-          <div className="quiz-link-select-container">
-            <Link className="select-quiz-link" to="/basic-quiz">
-              <p className="select-quiz-link-text"><strong>Basic Guide</strong></p>
-            </Link>
-            <article>
-              Explore Your Path: Ideal for beginners or those uncertain about their career direction, this quiz provides a friendly introduction to the world of career possibilities. Through straightforward questions about your interests and basic educational background, it helps you discover diverse career fields and suggests potential areas you might enjoy exploring further. Perfect for high school students or anyone new to career planning.
-            </article>
-          </div>
-          <div className="quiz-link-select-container">
-            <Link className="select-quiz-link" to="/advanced-quiz">
-              <p className="select-quiz-link-text"><strong>Advanced Guide</strong></p>
-            </Link>
-            <article>
-              Refine Your Journey: Designed for those who have a clearer vision of their future, this quiz dives deep into specific career pathways and advanced opportunities. By analyzing your detailed educational achievements, experiences, and skills, it offers personalized advice on strategic steps to take your career to the next level. Ideal for college students, recent graduates, or professionals seeking targeted guidance.
-            </article>
-          </div>
-        </div>
+      <SelectQuiz/>
     </>
   )
 }
