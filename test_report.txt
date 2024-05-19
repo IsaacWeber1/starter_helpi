@@ -578,7 +578,7 @@ PASS src/components/DisplayQuiz.test.tsx
 --------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 --------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                 |   20.92 |     16.2 |   14.37 |   22.15 |                                                                          
+All files                 |   20.74 |    15.35 |   14.11 |   22.06 |                                                                          
  src                      |       0 |        0 |       0 |       0 |                                                                          
   App.tsx                 |       0 |      100 |       0 |       0 | 18                                                                       
   index.tsx               |       0 |        0 |     100 |       0 | 9-30                                                                     
@@ -586,34 +586,34 @@ All files                 |   20.92 |     16.2 |   14.37 |   22.15 |
  src/assets/quizzes       |      50 |      100 |     100 |      50 |                                                                          
   AdvancedQuiz.ts         |       0 |      100 |     100 |       0 | 3                                                                        
   BasicQuiz.ts            |     100 |      100 |     100 |     100 |                                                                          
- src/assets/test_data     |       0 |      100 |       0 |       0 |                                                                          
+ src/assets/test_data     |       0 |        0 |       0 |       0 |                                                                          
   dummyQuiz.ts            |       0 |      100 |     100 |       0 | 3                                                                        
-  expampleReport.ts       |       0 |      100 |       0 |       0 | 4-69                                                                     
- src/components           |   28.39 |    21.51 |   22.11 |   30.55 |                                                                          
+  expampleReport.ts       |       0 |        0 |       0 |       0 | 5-74                                                                     
+ src/components           |   28.22 |    21.25 |    21.9 |   30.34 |                                                                          
   DisplayFinalRsults.tsx  |       0 |      100 |       0 |       0 | 1-2                                                                      
-  DisplayQuiz.tsx         |    18.4 |      7.4 |    12.5 |    20.9 | 66-68,72-76,82-87,91-120,126-148,159-190,195-233,240,244,266-270,274-276 
+  DisplayQuiz.tsx         |    18.4 |      7.4 |    12.5 |    20.9 | 66-68,72-76,82-87,91-120,126-148,159-190,195-236,243,247,269-273,277-279 
   Loading.tsx             |   31.25 |        0 |       0 |   38.46 | 7-10,14,19,24,29                                                         
   McMultiResponse.tsx     |   51.06 |    34.37 |   42.85 |   53.65 | 38-44,50-54,58,88-105,114-115,147,174-175                                
   McSingleResponse.tsx    |   76.66 |       50 |   58.33 |   75.86 | 55,60,71-72,119-131                                                      
   ProgressBar.tsx         |       0 |      100 |       0 |       0 | 1-2                                                                      
-  RenderReport.tsx        |    9.67 |        0 |       0 |   10.71 | 10-26,35-74,91-116                                                       
+  RenderReport.tsx        |    9.09 |        0 |       0 |      10 | 10-26,35-79,96-128                                                       
   SliderResponse.tsx      |       0 |        0 |       0 |       0 | 29-98                                                                    
   TextResponse.tsx        |   77.77 |     62.5 |   55.55 |   76.47 | 53-54,87-91                                                              
   UserRanking.tsx         |       0 |        0 |       0 |       0 | 26-119                                                                   
- src/controller           |   24.24 |     7.14 |    5.55 |   27.58 |                                                                          
+ src/controller           |   23.07 |     4.54 |    4.76 |   26.86 |                                                                          
   CallChat.ts             |       0 |        0 |       0 |       0 | 20-57                                                                    
   CreateImage.ts          |   14.28 |      100 |       0 |   14.28 | 4-15                                                                     
   ExtractGBTMessage.ts    |       0 |        0 |       0 |       0 |                                                                          
   OpenChatStream.ts       |       0 |        0 |       0 |       0 |                                                                          
   StartingPrompt.ts       |   35.29 |        0 |       0 |    37.5 | 4,9-141,213,217,221,225                                                  
-  StorageReportHnadler.ts |   13.63 |        0 |       0 |   17.64 | 5-9,14-20,25-31                                                          
+  StorageReportHnadler.ts |    14.7 |        0 |       0 |   19.23 | 10,14-23,27-31,36-42,47-53                                               
   openaiToken.ts          |      75 |       50 |     100 |      75 | 6-7                                                                      
  src/interfaces           |       0 |      100 |       0 |       0 |                                                                          
   PromptQuestionsSetup.ts |       0 |        0 |       0 |       0 |                                                                          
   QuestionTypes.ts        |       0 |        0 |       0 |       0 |                                                                          
   QuizFlow.ts             |       0 |      100 |       0 |       0 | 4-5                                                                      
  src/pages                |       0 |        0 |       0 |       0 |                                                                          
-  Home.tsx                |       0 |        0 |       0 |       0 | 7-103                                                                    
+  Home.tsx                |       0 |        0 |       0 |       0 | 7-84                                                                     
   Results.tsx             |       0 |        0 |       0 |       0 | 6-23                                                                     
   Secret.tsx              |       0 |        0 |       0 |       0 | 5-11                                                                     
   SelectQuiz.tsx          |       0 |      100 |       0 |       0 | 6                                                                        
@@ -635,5 +635,5 @@ All files                 |   20.92 |     16.2 |   14.37 |   22.15 |
 Test Suites: 5 passed, 5 total
 Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        5.638 s
+Time:        6.004 s
 Ran all test suites.
